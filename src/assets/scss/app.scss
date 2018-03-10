@@ -1,6 +1,5 @@
 @charset 'utf-8';
 
-
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
@@ -61,6 +60,7 @@
 // Global
 @import "global/accessibility";
 @import "global/colors";
+@import "global/type";
 @import "global/wp-admin";
 @import "global/wp-overrides";
 
