@@ -11,6 +11,12 @@ function customize_register( $wp_customize ) {
 		'section'  => 'title_tagline',
 		'settings' => 'sas_logo',
 	) ) );
+	$wp_customize->add_setting( 'sas_logo_desktop' );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'sas_logo_desktop', array(
+		'label'    => __( 'Desktop Logo', 'foundationpress' ),
+		'section'  => 'title_tagline',
+		'settings' => 'sas_logo_desktop',
+	) ) );
 
 	$wp_customize->add_section( 'contact_social', array(
 		'priority' => 30,

@@ -1,3 +1,7 @@
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 @each $name, $color in $foundation-palette {
   .text-#{$name} {
     color: $color;

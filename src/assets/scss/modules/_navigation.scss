@@ -1,37 +1,75 @@
-// Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(medium);
+  @include hide-for(large);
 }
 
-.desktop-menu,
-.site-navigation .top-bar-left {
-  @include show-for(medium);
+.site-navigation {
+  @extend .main-container;
+
+  .top-bar-left,
+  .desktop-menu {
+    @include show-for(large);
+    @include breakpoint(large) {
+      &.menu {
+        a {
+          font-size: 1rem;
+
+          &:hover:not(.button) {
+            color: $secondary-color;
+          }
+        }
+        .is-active {
+          > a {
+            background-color: transparent;
+            color: $secondary-color;
+          }
+        }
+        .menu-button {
+          a {
+            @include button;
+            @include button-style($green-medium, darken($green, 10%), $white);
+            margin-left: 1rem;
+
+            @include breakpoint(xlarge) {
+              padding: 1rem 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-// Site title
-.site-desktop-title a {
-  font-weight: bold;
+.site-desktop-title {
+  a {
+    font-weight: bold;
+
+    img {
+      max-height: $topbar-brand-height;
+    }
+  }
 }
 
-// Mobile menu
 .mobile-menu {
-  display: none; // prevents repaint caused by JS hiding menu onload
+  display: none;
 }
 
 .off-canvas {
-  > ul.menu {
+  .menu {
     height: 100vh;
     padding: 1rem;
-
     a {
       color: $primary-color;
       font-weight: 600;
       font-size: rem-calc(15);
     }
+    &.active {
+      > a {
+        background: transparent;
+        color: $secondary-color;
+      }
+    }
   }
-
-  .menu .active > a { background-color: $lighter-gray; }
 
 }
 
@@ -44,63 +82,119 @@
 
 .mobile-menu,
 .mobile-off-canvas-menu {
-
-  .menu .is-active > a {
-    background-color: transparent;
-    color: $secondary-color;
+  .menu {
+    .is-active {
+      > a {
+        background-color: transparent;
+        color: $secondary-color;
+      }
+    }
   }
 }
 
-// Tablet and desktop menu
-
 .top-bar {
-
-  .top-bar-title a {
-    font-size: 1rem;
-    color: #B9B9B9;
-    padding-left: 1rem;
-    line-height: 1.8;
-  }
-
-  .menu a {
-    color: #e6e6e6;
-    padding-top: 0;
-    padding-bottom: 0;
-    font-weight: bold;
-    font-size: 0.8rem;
-    line-height: 1;
-
-    &:hover:not(.button) {
-      background-color: #42525D;
+  .top-bar-title {
+    a {
+      font-size: 1.125rem;
+      color: $primary-color;
+      padding-left: 1rem;
+      line-height: 2;
     }
   }
 
-  .menu .active > a { background-color: #ccc; }
+  .menu {
+    a {
+      color: $primary-color;
+      font-weight: $global-weight-medium;
+      font-size: 1.125rem;
+      line-height: 1;
+      padding-top: 0;
+      padding-bottom: 0;
+      text-transform: uppercase;
 
-  .menu>li:not(.menu-text)>a { padding: 1rem; }
-  .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
+      &:hover:not(.button) {
+        color: $secondary-color;
+      }
+    }
 
-  .dropdown.menu .submenu { border: 0; }
-  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
-  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
-  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+    &.active {
+      a {
+        color: $secondary-color;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .menu {
+    > li:not(.menu-text) {
+      > a {
+        padding: .75rem;
+
+        @include breakpoint(xlarge){
+          padding: 1rem;
+        }
+      }
+    }
+  }
+
+  .dropdown.menu {
+    .has-submenu.is-down-arrow a {
+      padding-right: 1rem;
+
+      &:after {
+        border: 0;
+      }
+    }
+    .submenu {
+      border: 0;
+    }
+    &:first-child {
+      > li.is-dropdown-submenu-parent {
+        > a {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
 
 .site-navigation {
   @include breakpoint(small only) {
-    padding: 0; // prevents container visibility on small screens
+    padding: 0;
   }
 }
 
-// WP post navigation
-.post-navigation {
-  @include clearfix;
+.title-bar {
+  .menu-icon {
+    height: 24px;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    width: 24px;
+
+    &:after {
+      background: $secondary-color;
+      box-shadow: 0 7px 0 $secondary-color, 0 14px 0 $secondary-color, 0 21px 0 $secondary-color;
+    }
+
+    &:hover {
+      &:after {
+        background: $primary-color;
+        box-shadow: 0 7px 0 $primary-color, 0 14px 0 $primary-color, 0 21px 0 $primary-color;
+      }
+    }
+  }
 }
 
 .nav-previous {
-  float:left;
+  float: left;
 }
 
 .nav-next {
-  float:right;
+  float: right;
+}
+
+.post-navigation {
+  @include clearfix;
 }
