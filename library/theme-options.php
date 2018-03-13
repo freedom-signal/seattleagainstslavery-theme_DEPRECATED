@@ -64,6 +64,12 @@ function customize_register( $wp_customize ) {
 		'section' => 'contact_social',
 		'type'    => 'text'
 	) );
+	$wp_customize->add_setting( 'sas_github' );
+	$wp_customize->add_control( 'sas_github', array(
+		'label'   => __( 'Github URL', 'foundationpress' ),
+		'section' => 'contact_social',
+		'type'    => 'text'
+	) );
 }
 
 add_action( 'customize_register', 'customize_register' );
