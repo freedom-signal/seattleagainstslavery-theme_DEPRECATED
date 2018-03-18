@@ -1,6 +1,21 @@
+h1,
+.h1 {
+
+}
+
 h2,
 .h2 {
   font-weight: $global-weight-normal;
+}
+
+.link-primary{
+  color: $primary-color;
+  transition: color 400ms;
+
+  &:hover {
+    color: $blue;
+    transition: color 300ms;
+  }
 }
 
 .text-uppercase {

@@ -3,49 +3,14 @@
   @include hide-for(large);
 }
 
-.site-navigation {
-  @extend .main-container;
-
-  .top-bar-left,
-  .desktop-menu {
-    @include show-for(large);
-    @include breakpoint(large) {
-      &.menu {
-        a {
-          font-size: 1rem;
-
-          &:hover:not(.button) {
-            color: $secondary-color;
-          }
-        }
-        .is-active {
-          > a {
-            background-color: transparent;
-            color: $secondary-color;
-          }
-        }
-        .menu-button {
-          a {
-            @include button;
-            @include button-style($green-medium, darken($green, 10%), $white);
-            margin-left: 1rem;
-
-            @include breakpoint(xlarge) {
-              padding: 1rem 2rem;
-            }
-          }
-        }
+.mobile-menu,
+.mobile-off-canvas-menu {
+  .menu {
+    .is-active {
+      > a {
+        background-color: transparent;
+        color: $secondary-color;
       }
-    }
-  }
-}
-
-.site-desktop-title {
-  a {
-    font-weight: bold;
-
-    img {
-      max-height: $topbar-brand-height;
     }
   }
 }
@@ -73,22 +38,92 @@
 
 }
 
-.title-bar-title {
-  a {
-    font-size: 1rem;
-    color: $medium-gray;
+.post-navigation {
+  @include xy-grid;
+  @extend .align-center;
+
+  .nav-links {
+    @include xy-grid;
+    @extend .align-center;
+  }
+
+  &--next,
+  &--previous {
+    a {
+      @extend .button;
+      @extend .button-large;
+      @extend .button.orange;
+    }
+  }
+
+  &--previous,
+  .nav-previous {
+    @include xy-cell;
+    @extend .text-right;
+
+    @include breakpoint(medium) {
+      @include xy-cell(5);
+    }
+  }
+
+  &--next,
+  .nav-next {
+    @include xy-cell;
+
+    @include breakpoint(medium) {
+      @include xy-cell(5);
+    }
   }
 }
 
-.mobile-menu,
-.mobile-off-canvas-menu {
-  .menu {
-    .is-active {
-      > a {
-        background-color: transparent;
-        color: $secondary-color;
+.site-desktop-title {
+  a {
+    font-weight: bold;
+
+    img {
+      max-height: $topbar-brand-height;
+    }
+  }
+}
+
+.site-navigation {
+  @extend .main-container;
+
+  .top-bar-left,
+  .desktop-menu {
+    @include show-for(large);
+    @include breakpoint(large) {
+      &.menu {
+        a {
+          font-size: 1rem;
+
+          &:hover:not(.button) {
+            color: $secondary-color;
+          }
+        }
+        .is-active {
+          > a {
+            background-color: transparent;
+            color: $secondary-color;
+          }
+        }
+        .menu-button {
+          a {
+            @include button;
+            @include button-style($green-medium, darken($green, 10%), $white);
+            border-radius: rem-calc(40);
+            margin-left: 1rem;
+
+            @include breakpoint(xlarge) {
+              padding: 1rem 2rem;
+            }
+          }
+        }
       }
     }
+  }
+  @include breakpoint(small only) {
+    padding: 0;
   }
 }
 
@@ -130,7 +165,7 @@
       > a {
         padding: .75rem;
 
-        @include breakpoint(xlarge){
+        @include breakpoint(xlarge) {
           padding: 1rem;
         }
       }
@@ -160,12 +195,6 @@
   }
 }
 
-.site-navigation {
-  @include breakpoint(small only) {
-    padding: 0;
-  }
-}
-
 .title-bar {
   .menu-icon {
     height: 24px;
@@ -185,16 +214,11 @@
       }
     }
   }
-}
 
-.nav-previous {
-  float: left;
-}
-
-.nav-next {
-  float: right;
-}
-
-.post-navigation {
-  @include clearfix;
+  &-title {
+    a {
+      font-size: 1rem;
+      color: $medium-gray;
+    }
+  }
 }
