@@ -89,7 +89,7 @@ if ( comments_open() ) :
 		?>
 	</p>
 	<?php else : ?>
-	<form action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform">
+	<form action="<?= get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform">
 		<?php if ( is_user_logged_in() ) : ?>
 		<p>
 			<?php
@@ -99,7 +99,7 @@ if ( comments_open() ) :
 					get_option( 'siteurl' ),
 					$user_identity
 				);
-			?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'foundationpress' ); ?>"><?php _e( 'Log out &raquo;', 'foundationpress' ); ?></a>
+			?> <a href="<?= wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'foundationpress' ); ?>"><?php _e( 'Log out &raquo;', 'foundationpress' ); ?></a>
 		</p>
 		<?php else : ?>
 		<p>
@@ -111,7 +111,7 @@ if ( comments_open() ) :
 					}
 				?>
 			</label>
-			<input type="text" class="five" name="author" id="author" value="<?php echo esc_attr( $comment_author ); ?>" size="22" tabindex="1" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
+			<input type="text" class="five" name="author" id="author" value="<?= esc_attr( $comment_author ); ?>" size="22" tabindex="1" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
 		</p>
 		<p>
 			<label for="email">
@@ -122,7 +122,7 @@ if ( comments_open() ) :
 					}
 				?>
 			</label>
-			<input type="text" class="five" name="email" id="email" value="<?php echo esc_attr( $comment_author_email ); ?>" size="22" tabindex="2" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
+			<input type="text" class="five" name="email" id="email" value="<?= esc_attr( $comment_author_email ); ?>" size="22" tabindex="2" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
 		</p>
 		<p>
 			<label for="url">
@@ -130,7 +130,7 @@ if ( comments_open() ) :
 					_e( 'Website', 'foundationpress' );
 				?>
 			</label>
-			<input type="text" class="five" name="url" id="url" value="<?php echo esc_attr( $comment_author_url ); ?>" size="22" tabindex="3">
+			<input type="text" class="five" name="url" id="url" value="<?= esc_attr( $comment_author_url ); ?>" size="22" tabindex="3">
 		</p>
 		<?php endif; ?>
 		<p>
@@ -146,7 +146,7 @@ if ( comments_open() ) :
 				_e( 'You can use these tags:', 'foundationpress' );
 			?>
 			<code>
-				<?php echo allowed_tags(); ?>
+				<?= allowed_tags(); ?>
 			</code>
 		</p>
 		<p><input name="submit" class="button" type="submit" id="submit" tabindex="5" value="<?php esc_attr_e( 'Submit Comment', 'foundationpress' ); ?>"></p>

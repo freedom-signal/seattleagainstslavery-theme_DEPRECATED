@@ -58,7 +58,7 @@ if ( ! class_exists( 'Foundationpress_Comments' ) ) :
 
 			<header class="comment-author">
 
-				<?php echo get_avatar( $comment, $args['avatar_size'] ); ?>
+				<?= get_avatar( $comment, $args['avatar_size'] ); ?>
 
 				<div class="author-meta vcard author">
 
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Foundationpress_Comments' ) ) :
 					get_comment_author_link()
 				);
 				?>
-				<time datetime="<?php echo comment_date( 'c' ); ?>"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( get_comment_date(), get_comment_time() ); ?></a></time>
+				<time datetime="<?= comment_date( 'c' ); ?>"><a href="<?= esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( get_comment_date(), get_comment_time() ); ?></a></time>
 
 			</div><!-- /.comment-author -->
 
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Foundationpress_Comments' ) ) :
 				</section><!-- /.comment-content -->
 
 				<div class="comment-meta comment-meta-data hide">
-					<a href="<?php echo htmlspecialchars( get_comment_link( get_comment_ID() ) ); ?>"><?php comment_date(); ?> at <?php comment_time(); ?></a> <?php edit_comment_link( '(Edit)' ); ?>
+					<a href="<?= htmlspecialchars( get_comment_link( get_comment_ID() ) ); ?>"><?php comment_date(); ?> at <?php comment_time(); ?></a> <?php edit_comment_link( '(Edit)' ); ?>
 				</div><!-- /.comment-meta -->
 
 				<div class="reply">

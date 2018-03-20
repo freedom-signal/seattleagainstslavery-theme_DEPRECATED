@@ -133,3 +133,8 @@ if ( ! function_exists( 'foundationpress_remove_figure_inline_style' ) ) :
 
 	}
 endif;
+
+function unregister_tags() {
+	unregister_taxonomy_for_object_type( 'post_tag', 'post' );
+}
+add_action( 'init', 'unregister_tags' );

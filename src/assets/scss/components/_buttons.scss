@@ -5,4 +5,13 @@
     padding: 0.625 * $global-padding 1.5 * $global-padding;
     text-transform: lowercase;
   }
+  &.button-right {
+    display: block;
+    float: right;
+  }
+  &.button-small {
+    font-size: map-get($button-sizes, default) !important;
+    font-weight: $global-weight-bold;
+    padding: 0.5 * $global-padding 0.875 *$global-padding;
+  }
 }

@@ -12,3 +12,81 @@
     height: rem-calc(400);
   }
 }
+
+.featured-image {
+  &--post {
+    &--container {
+      @include xy-grid;
+      @extend .align-center;
+      position: relative;
+    }
+    &--image {
+      @extend .bg-cover;
+      bottom: -0.5rem;
+      left: -0.5rem;
+      position: absolute;
+      right: -0.5rem;
+      top: -0.5rem;
+
+      &-container {
+        @extend .absolute-cover;
+        overflow: hidden;
+      }
+
+      &-default {
+        @extend .absolute-cover;
+        background: $red no-repeat center center;
+        background-size: contain;
+      }
+
+      &-single {
+        filter: blur(4px);
+      }
+    }
+    &--title {
+      @include xy-cell;
+      padding-bottom: 3 * $global-padding;
+      padding-top: 3 * $global-padding;
+      z-index: 10;
+
+
+      &:before {
+        @extend .absolute-cover;
+        background: transparentize($dark-gray, 0.7);
+        content: '';
+        z-index: -1;
+      }
+
+      @include breakpoint(medium) {
+        @include xy-cell(10);
+        padding-bottom: 5.25 * $global-padding;
+        padding-top: 5.25 * $global-padding;
+      }
+
+      @include breakpoint(xlarge) {
+        padding-bottom: 7.5 * $global-padding;
+        padding-top: 7.5 * $global-padding;
+      }
+      h1 {
+        @extend .text-center;
+        @extend .text-uppercase;
+        color: $white;
+        font-size: 1.875rem;
+        letter-spacing: 3px;
+        text-shadow: 1px 1px 3px transparentize($dark-gray, 0.1);
+
+        @include breakpoint(medium) {
+          font-size: 2rem;
+        }
+
+        @include breakpoint(large) {
+          font-size: 2.25rem;
+        }
+
+        @include breakpoint(xlarge) {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}

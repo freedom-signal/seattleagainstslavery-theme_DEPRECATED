@@ -1,8 +1,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'content--post-container' ); ?>>
-	<div class="content--post-date">
+	<section class="content--post-date">
 		<?php foundationpress_entry_date(); ?>
-	</div>
-	<div class="content--post-content">
+	</section>
+	<section class="content--post-content">
 		<header>
 			<?php if ( ! is_single() ) :
 				$classes = 'content--post-content--image';
@@ -18,9 +18,11 @@
 					</div>
 				</a>
 			<?php endif; ?>
-			<?php if ( is_single() ) :
-				the_title( '<h1 class="content--post-content--title">', '</h1>' );
-			else :
+			<?php if ( is_single() ) : ?>
+				<?php if ( get_field( 'post_subtitle' ) ): ?>
+					<h2 class="content--post-content--title"><?= get_field( 'post_subtitle' ); ?></h2>
+				<?php endif; ?>
+			<?php else :
 				the_title( '<h2 class="content--post-content--title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			endif; ?>
 			<span class="content--post-content--meta">
@@ -32,20 +34,9 @@
 				the_content();
 			else:
 				the_excerpt(); ?>
-				<a href="<?php the_permalink(); ?>" class="button button-large secondary"><?= __( 'Read more', 'foundationpress' ); ?></a>
+				<a href="<?php the_permalink(); ?>"
+				   class="button button-large button-right secondary"><?= __( 'Read more', 'foundationpress' ); ?></a>
 			<?php endif; ?>
 		</div>
-		<?php if ( is_single() ): ?>
-			<footer>
-				<?php
-				wp_link_pages( array(
-					'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
-					'after'  => '</p></nav>',
-				) );
-				?>
-				<?php $tag = get_the_tags();
-				if ( $tag ) { ?><p><?php the_tags(); ?></p><?php } ?>
-			</footer>
-		<?php endif; ?>
-	</div>
+	</section>
 </article>

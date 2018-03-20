@@ -15,6 +15,17 @@ endif;
 if ( ! function_exists( 'foundationpress_entry_date' ) ) :
 	function foundationpress_entry_date() {
 		/* translators: %1$s: current date */
-		echo '<time class="updated" datetime="' . get_the_time( 'c' ) . '"><span class="time-month">' . sprintf( __( '%1$s', 'foundationpress' ), get_the_date('M' ) ) . '</span><span class="time-date">' . sprintf( __( '%1$s', 'foundationpress' ), get_the_date('j' ) ) . '</span></time>';
+		$content = '';
+		$content .= '<time class="updated" datetime="' . get_the_time( 'c' ) . '">';
+		$content .= '<span class="time-month">' . sprintf( __( '%1$s', 'foundationpress' ), get_the_date( 'M' ) ) . '</span>';
+		$content .= '<span class="time-date">' . sprintf( __( '%1$s', 'foundationpress' ), get_the_date( 'j' ) ) . '</span>';
+
+		if ( is_single() ):
+			$content .= '<span class="time-year">' . sprintf( __( '%1$s', 'foundationpress' ), get_the_date( 'Y' ) ) . '</span>';
+		endif;
+
+		$content .= '</time>';
+
+		echo $content;
 	}
 endif;
