@@ -9,6 +9,9 @@
     display: block;
     float: right;
   }
+  &.button-round {
+    border-radius: 2 * $global-padding;
+  }
   &.button-small {
     font-size: map-get($button-sizes, default) !important;
     font-weight: $global-weight-bold;
