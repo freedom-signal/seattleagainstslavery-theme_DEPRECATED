@@ -95,38 +95,56 @@
       }
 
       &-default {
-        @extend .absolute-cover;
-        background: $red no-repeat center center;
-        background-size: contain;
+        background: $red;
+
+        &:after,
+        &:before {
+          background: transparent no-repeat center center;
+          background-size: contain;
+          content: '';
+          display: block;
+          height: rem-calc(60);
+          position: absolute;
+          width: rem-calc(300);
+        }
+        &:after {
+          background-image: url('../images/default-bg_top.png');
+          left: 2.25rem;
+          top: 2.25rem;
+        }
+        &:before {
+          background-image: url('../images/default-bg_bottom.png');
+          bottom: 2.25rem;
+          right: 2.25rem;
+        }
       }
 
       &-single {
         filter: blur(4px);
+
+        &:before {
+          @extend .absolute-cover;
+          background: transparentize($dark-gray, 0.75);
+          content: '';
+          z-index: -1;
+        }
       }
     }
     &--title {
       @include xy-cell;
-      padding-bottom: 3 * $global-padding;
-      padding-top: 3 * $global-padding;
+      padding-bottom: 5 * $global-padding;
+      padding-top: 5 * $global-padding;
       z-index: 10;
-
-
-      &:before {
-        @extend .absolute-cover;
-        background: transparentize($dark-gray, 0.7);
-        content: '';
-        z-index: -1;
-      }
 
       @include breakpoint(medium) {
         @include xy-cell(10);
-        padding-bottom: 5.25 * $global-padding;
-        padding-top: 5.25 * $global-padding;
+        padding-bottom: 6.5 * $global-padding;
+        padding-top: 6.5 * $global-padding;
       }
 
       @include breakpoint(xlarge) {
-        padding-bottom: 7.5 * $global-padding;
-        padding-top: 7.5 * $global-padding;
+        padding-bottom: 7.75 * $global-padding;
+        padding-top: 7.75 * $global-padding;
       }
       h1 {
         @extend .text-center;
