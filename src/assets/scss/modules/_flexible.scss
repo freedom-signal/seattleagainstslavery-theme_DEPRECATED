@@ -2,6 +2,141 @@
   padding-bottom: 5 * $global-padding;
   padding-top: 5 * $global-padding;
 
+  &--books {
+    @include xy-grid;
+    @extend .align-center;
+
+    h2 {
+      @include xy-cell(10);
+      @extend .header-white;
+      color: $primary-color;
+    }
+    h3 {
+      @include xy-cell(10);
+      @extend .subheader-white;
+      color: $primary-color;
+    }
+
+    &--container {
+      @include xy-cell(12);
+      @include xy-grid;
+      @extend .align-center;
+      @extend .align-stretch;
+    }
+
+    &--single {
+      @include xy-cell(11);
+      padding: 2rem 0;
+
+      @include breakpoint(medium) {
+        @include xy-cell(5);
+      }
+
+      @include breakpoint(xlarge) {
+        @include xy-cell(4);
+      }
+
+      a {
+        @extend .align-middle;
+        background: $primary-color;
+        color: $white;
+        display: flex;
+        height: 100%;
+        margin-left: 3.5rem;
+        padding: 2rem;
+        position: relative;
+
+        &:after,
+        &:before {
+          background: $white;
+          border: 3px solid $aqua-medium;
+          content: '';
+          height: 100%;
+          position: absolute;
+          right: 1rem;
+          top: 1rem;
+          width: 100%;
+          z-index: -1;
+        }
+
+        &:before {
+          right: 2rem;
+          top: 2rem;
+        }
+
+        span {
+          display: flex;
+          flex-direction: column;
+          font-size: 1.65 * $global-font-size;
+          font-weight: $global-weight-bold;
+          line-height: 1.1;
+          text-align: center;
+          width: 100%;
+
+          small {
+            @extend .text-uppercase;
+            display: block;
+            font-size: 0.65 * $global-font-size;
+            font-weight: $global-weight-normal;
+          }
+        }
+      }
+    }
+  }
+  &--brochures {
+    @include xy-grid;
+    @extend .align-center;
+
+    h2 {
+      @include xy-cell(10);
+      @extend .header-white;
+      color: $primary-color;
+    }
+
+    h3 {
+      @include xy-cell(10);
+      @extend .subheader-white;
+      color: $primary-color;
+    }
+
+    &--container {
+      @include xy-cell(12);
+      @include xy-grid;
+      @extend .align-spaced;
+      @extend .align-stretch;
+
+      &:after,
+      &:before {
+        background: transparent url('../images/teal-bg-square.png') no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: 2rem;
+        width: 100%;
+      }
+      &:after {
+        background-position: center right;
+      }
+      &:before {
+        background-position: center left;
+      }
+    }
+
+    &--single {
+      @include xy-cell(5);
+      @extend .align-middle;
+      @extend .text-center;
+      background: $aqua-medium;
+      margin-bottom: 1.75 * $global-padding;
+      margin-top: 1.75 * $global-padding;
+      padding-bottom: 2.5 * $global-padding;
+      padding-top: 2.5 * $global-padding;
+
+      a {
+        @extend .header-white;
+      }
+    }
+  }
   &--columns {
     @include xy-grid;
     @extend .align-center;
@@ -164,7 +299,7 @@
               border: 0 !important;
               border-bottom: 2px solid $primary-color !important;
               box-shadow: none;
-              font-size: 2rem;
+              font-size: 2 * $global-font-size;
               line-height: 2.5rem;
               text-align: right;
               width: auto;
@@ -185,7 +320,7 @@
               padding: 0;
 
               &.input-group-cents {
-                font-size: 2rem;
+                font-size: 2 * $global-font-size;
                 padding: 0 0.25rem 0 0;
 
                 @include breakpoint(medium) {
@@ -194,7 +329,7 @@
               }
 
               &.input-group-currency {
-                font-size: 1.25rem;
+                font-size: 1.25 * $global-font-size;
                 padding: 0 1rem 0 0.25rem;
 
                 @include breakpoint(medium) {
@@ -203,7 +338,7 @@
               }
 
               &.input-group-symbol {
-                font-size: 2rem;
+                font-size: 2 * $global-font-size;
                 padding: 0 0 0 1rem;
 
                 @include breakpoint(medium) {
@@ -214,7 +349,7 @@
           }
         }
         p {
-          font-size: 120%;
+          font-size: 1.2 * $global-font-size;
           line-height: 2;
         }
       }
@@ -225,6 +360,175 @@
           max-width: 20rem;
           width: 65%;
         }
+      }
+    }
+  }
+  &--films {
+    @include xy-grid;
+    @extend .align-center;
+    background: $aqua;
+
+    h2 {
+      @include xy-cell(10);
+      @extend .header-white;
+    }
+    h3 {
+      @include xy-cell(10);
+      @extend .subheader-white;
+    }
+
+    &--container {
+      @include xy-cell(12);
+      @include xy-grid;
+      @extend .align-center;
+    }
+
+    &--single {
+      @include xy-cell(11);
+      padding: 2rem 0;
+
+      @include breakpoint(medium) {
+        @include xy-cell(5);
+      }
+
+      @include breakpoint(xlarge) {
+        @include xy-cell(4);
+      }
+
+      a {
+        color: $primary-color;
+        display: flex;
+        height: 12rem;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        width: 12rem;
+        z-index: 1;
+
+        &:after {
+          background: $white;
+          border-radius: 50%;
+          content: '';
+          height: 12rem;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 12rem;
+          z-index: -1;
+        }
+
+        &:before {
+          border: 3px solid $primary-color;
+          border-radius: 50%;
+          content: '';
+          height: 12rem;
+          left: 1.25rem;
+          position: absolute;
+          top: 0.5rem;
+          width: 12rem;
+          z-index: -1;
+        }
+
+        span {
+          @extend .align-middle;
+          display: flex;
+          font-size: 1.65 * $global-font-size;
+          font-weight: $global-weight-medium;
+          height: 8rem;
+          line-height: 1.1;
+          text-align: center;
+          width: 8rem;
+        }
+      }
+    }
+  }
+  &--organizations {
+    @include xy-grid;
+    @extend .align-center;
+    background: $red;
+    position: relative;
+
+    &:after,
+    &:before {
+      background: transparent no-repeat center center;
+      background-size: contain;
+      content: '';
+      display: block;
+      height: 60%;
+      position: absolute;
+      width: rem-calc(75);
+    }
+    &:after {
+      background-image: url('../images/red-bg_down.png');
+      left: 1.5rem;
+      top: 1.5rem;
+    }
+    &:before {
+      background-image: url('../images/red-bg_up.png');
+      bottom: 1.5rem;
+      right: 1.5rem;
+    }
+
+    h2 {
+      @include xy-cell(10);
+      @extend .header-white;
+    }
+
+    h3 {
+      @include xy-cell(10);
+      @extend .subheader-white;
+    }
+
+    &--container {
+      @include xy-cell(12);
+      @include xy-grid;
+      @extend .align-center;
+    }
+
+    &--single {
+      @include xy-cell(11);
+      @extend .text-center;
+
+      a {
+        @extend .subheader-white;
+        border-bottom: 1px solid $white;
+        display: inline-block;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        padding-right: 3.5rem;
+      }
+    }
+  }
+  &--podcasts {
+    @include xy-grid;
+    @extend .align-center;
+    background: $green url('../images/green-bg_sprinkle.png') no-repeat center center;
+    background-size: cover;
+
+    h2 {
+      @include xy-cell(10);
+      @extend .header-white;
+      margin-bottom: 2rem;
+    }
+
+    &--container {
+      @include xy-cell(12);
+      @include xy-grid;
+      @extend .align-center;
+    }
+
+    &--single {
+      @include xy-cell(11);
+      a {
+        background: $white;
+        color: $aqua;
+        display: block;
+        font-size: 1.5 * $global-font-size;
+        font-weight: $global-weight-bold;
+        margin-bottom: 1rem;
+        padding: 1rem 0;
+        text-align: center;
+        width: 100%;
       }
     }
   }

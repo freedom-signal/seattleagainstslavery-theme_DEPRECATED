@@ -8,7 +8,16 @@ h2,
   font-weight: $global-weight-normal;
 }
 
-.link-primary{
+.header-white {
+  color: $white;
+  font-size: 2 * $global-font-size;
+  font-weight: $global-weight-medium;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.link-primary {
   color: $primary-color;
   transition: color 400ms;
 
@@ -16,6 +25,15 @@ h2,
     color: $blue;
     transition: color 300ms;
   }
+}
+
+.subheader-white {
+  color: $white;
+  font-size: 1.25 * $global-font-size;
+  font-weight: $global-weight-normal;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .text-uppercase {
