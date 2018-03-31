@@ -1,5 +1,5 @@
 <?php $columns = get_field( 'columns' );
-if ( $columns ): ?>
+if ( $columns['columns'] ): ?>
 	<section class="flexible flexible--columns">
 		<?php if ( $columns['section_title'] ): ?>
 			<h2><?= $columns['section_title']; ?></h2>

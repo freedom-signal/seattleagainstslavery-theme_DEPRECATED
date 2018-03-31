@@ -1,5 +1,5 @@
 <?php $books = get_field( 'books' );
-if ( $books ): ?>
+if ( $books['books'] ): ?>
 	<section class="flexible flexible--books">
 		<?php if ( $books['title'] ): ?>
 			<h2><?= $books['title']; ?></h2>
@@ -13,7 +13,7 @@ if ( $books ): ?>
 					<a href="<?= $book['url']; ?>">
 						<span>
 							<?= $book['title']; ?>
-							<small><?= __('By', 'foundationpress'); ?> <?= $book['author']; ?></small>
+							<small><?= __( 'By', 'foundationpress' ); ?> <?= $book['author']; ?></small>
 						</span>
 					</a>
 				</div>

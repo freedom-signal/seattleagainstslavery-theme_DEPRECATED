@@ -1,5 +1,5 @@
 <?php $organizations = get_field( 'orgs' );
-if ( $organizations ): ?>
+if ( $organizations['orgs'] ): ?>
 	<section class="flexible flexible--organizations">
 		<?php if ( $organizations['title'] ): ?>
 			<h2><?= $organizations['title']; ?></h2>

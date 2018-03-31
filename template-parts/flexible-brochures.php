@@ -1,5 +1,5 @@
 <?php $brochures = get_field( 'brochures' );
-if ( $brochures ): ?>
+if ( $brochures['brochures'] ): ?>
 	<section class="flexible flexible--brochures">
 		<?php if ( $brochures['title'] ): ?>
 			<h2><?= $brochures['title']; ?></h2>
