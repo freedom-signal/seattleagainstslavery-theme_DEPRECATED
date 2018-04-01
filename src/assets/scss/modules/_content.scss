@@ -34,6 +34,7 @@
         }
 
         &-default {
+          @extend .hide-for-medium;
           background: $red no-repeat center center;
           background-size: contain;
         }
