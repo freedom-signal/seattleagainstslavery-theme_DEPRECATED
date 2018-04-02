@@ -42,7 +42,7 @@
         transition: background-color 400ms;
         width: rem-calc(32);
 
-        @include breakpoint(large){
+        @include breakpoint(medium){
           @include margin(.25, .5, .25, .5);
           height: rem-calc(44);
           line-height: rem-calc(60);
