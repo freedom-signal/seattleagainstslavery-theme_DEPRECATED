@@ -26,6 +26,9 @@ get_header(); ?>
 				<div class="post-navigation--next"><?php previous_posts_link( __( 'View newer', 'foundationpress' ) ); ?></div>
 				<div class="post-navigation--previous"><?php next_posts_link( __( 'View older', 'foundationpress' ) ); ?></div>
 			</nav>
+			<div class="post-border">
+				<hr>
+			</div>
 		</main>
 	</div>
 </div>
