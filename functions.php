@@ -54,5 +54,5 @@ require_once( 'library/responsive-images.php' );
 /** Add theme options */
 require_once( 'library/theme-options.php' );
 
-/** If your site requires protocol relative url's for theme assets, uncomment the line below */
-// require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
+/** Custom post types */
+require_once( 'library/custom-post-type.php' );
