@@ -72,6 +72,30 @@
       }
     }
   }
+  &--orange {
+    background: $orange no-repeat center center;
+    background-size: cover;
+    padding-bottom: 7.5 * $global-padding;
+    padding-top: 2.5 * $global-padding;
+    h1 {
+      @extend .text-uppercase;
+      color: $white;
+      margin-bottom: 0;
+      text-shadow: 0 0 2px transparentize($orange-dark, 0.4);
+    }
+    h2 {
+      @extend .text-uppercase;
+      color: $white;
+      letter-spacing: 1px;
+      line-height: 1.75;
+      text-shadow: 0 0 2px transparentize($orange-dark, 0.4);
+    }
+
+    &:after,
+    &:before {
+      display: none;
+    }
+  }
   &--thumbnail {
     background: transparent no-repeat center center;
     background-size: cover;
