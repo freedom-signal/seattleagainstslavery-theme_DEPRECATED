@@ -16,27 +16,36 @@ if ( $the_query->have_posts() ): ?>
 			<h2 class="flexible--directors--title"><?= $directors['title']; ?></h2>
 		<?php endif; ?>
 		<div class="flexible--directors--container">
-			<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
-				<div class="flexible--directors--single">
-					<a href="mailto:<?php the_field( 'email' ); ?>">
-						<?php
-						$thumbnail = get_stylesheet_directory_uri() . '/dist/assets/images/member.png';
-						if ( has_post_thumbnail() ):
-							$thumbnail = get_the_post_thumbnail_url();
-						endif; ?>
-						<div class="flexible--directors--single-image" style="background-image: url('<?= $thumbnail; ?>')">
-							<div class="flexible--directors--single-image--hover">
-								<?= __('Questions?', 'foundationpress'); ?>
-								<?= __('Email Me!', 'foundationpress'); ?>
-							</div>
+			<?php while ( $the_query->have_posts() ):
+			$the_query->the_post(); ?>
+			<div class="flexible--directors--single">
+				<?php if ( get_field( 'email' ) ): ?>
+				<a href="mailto:<?php the_field( 'email' ); ?>">
+				<?php else: ?>
+				<div class="flexible--directors--single-container">
+				<?php endif; ?>
+					<?php
+					$thumbnail = get_stylesheet_directory_uri() . '/dist/assets/images/member.png';
+					if ( has_post_thumbnail() ):
+						$thumbnail = get_the_post_thumbnail_url();
+					endif; ?>
+					<div class="flexible--directors--single-image" style="background-image: url('<?= $thumbnail; ?>')">
+						<div class="flexible--directors--single-image--hover">
+							<?= __( 'Questions?', 'foundationpress' ); ?>
+							<?= __( 'Email Me!', 'foundationpress' ); ?>
 						</div>
-						<div class="flexible--directors--single-content">
-							<?php the_title( '<h2>', '</h2>' ); ?>
-							<h3><?php the_field( 'title' ); ?></h3>
-						</div>
-					</a>
+					</div>
+					<div class="flexible--directors--single-content">
+						<?php the_title( '<h2>', '</h2>' ); ?>
+						<h3><?php the_field( 'title' ); ?></h3>
+					</div>
+				<?php if ( get_field( 'email' ) ): ?>
+				</a>
+				<?php else: ?>
 				</div>
-			<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+		<?php endwhile; ?>
 		</div>
 	</section>
 <?php endif;

@@ -238,43 +238,90 @@
     &--container {
       @include xy-grid;
       @include xy-cell(12);
+
+      @include breakpoint(small only) {
+        justify-content: center;
+      }
     }
     &--single {
-      @include xy-cell(12);
+      @include xy-cell(9);
       padding-bottom: 1rem;
       padding-top: 1rem;
 
-      @include breakpoint(large){
+      @include breakpoint(large) {
         @include xy-cell(6);
+      }
+
+      > .flexible--directors--single-container {
+        @include xy-grid;
+        @extend .align-middle;
       }
 
       > a {
         @include xy-grid;
         @extend .align-middle;
+
+        &:hover {
+          .flexible--directors--single-image {
+            background-color: $aqua-medium;
+            background-image: none !important;
+
+            &--hover {
+              display: block;
+            }
+          }
+        }
       }
 
       &-content {
-        @include xy-cell(8);
+        @include xy-cell(12);
+
+        @include breakpoint(medium) {
+          @include xy-cell(6);
+        }
+
+        @include breakpoint(large) {
+          @include xy-cell(8);
+        }
 
         h2 {
           line-height: 1.1;
           margin-bottom: 0.25rem;
-          margin-left: 0 !important;
-          margin-right: 0 !important;
           text-align: left;
+
+          @include breakpoint(small only) {
+            text-align: center;
+          }
+
+          @include breakpoint(medium) {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+          }
         }
 
         h3 {
           text-align: left;
+
+          @include breakpoint(small only) {
+            text-align: center;
+          }
         }
       }
       &-image {
-        @include xy-cell(4);
+        @include xy-cell(12);
         background: transparent no-repeat center center;
         background-size: cover;
         border-radius: 50%;
         margin-bottom: 1rem;
         position: relative;
+
+        @include breakpoint(medium) {
+          @include xy-cell(6);
+        }
+
+        @include breakpoint(large) {
+          @include xy-cell(4);
+        }
 
         &:after {
           content: '';
@@ -286,6 +333,7 @@
           @extend .text-uppercase;
           color: $primary-color;
           display: none;
+          font-size: 0.75 * $global-font-size;
           font-weight: $global-weight-bold;
           height: auto;
           left: 50%;
@@ -300,19 +348,8 @@
             background-size: contain;
             content: '';
             display: inline-block;
-            padding-bottom: 40px;
+            padding-bottom: 30px;
             width: 100%;
-          }
-        }
-      }
-
-      &:hover {
-        .flexible--staff--single-image {
-          background-color: $aqua-medium;
-          background-image: none !important;
-
-          &--hover {
-            display: block;
           }
         }
       }
@@ -728,12 +765,25 @@
       padding-bottom: 1rem;
       padding-top: 1rem;
 
-      @include breakpoint(medium){
-        @include xy-cell(6);
+      @include breakpoint(medium) {
+        @include xy-cell(5);
       }
 
-      @include breakpoint(xlarge){
+      @include breakpoint(xlarge) {
         @include xy-cell(3);
+      }
+
+      > a {
+        &:hover {
+          .flexible--staff--single-image {
+            background-color: $aqua-medium;
+            background-image: none !important;
+
+            &--hover {
+              display: block;
+            }
+          }
+        }
       }
 
       &-content {
@@ -778,17 +828,6 @@
             display: inline-block;
             padding-bottom: 40px;
             width: 100%;
-          }
-        }
-      }
-
-      &:hover {
-        .flexible--staff--single-image {
-          background-color: $aqua-medium;
-          background-image: none !important;
-
-          &--hover {
-            display: block;
           }
         }
       }
