@@ -4,11 +4,6 @@
 
 .main-grid {
   @include xy-grid();
-  margin-top: 1rem;
-
-  @include breakpoint(medium) {
-    margin-top: 3rem;
-  }
 
   &.sidebar-left {
     @include breakpoint(small) {

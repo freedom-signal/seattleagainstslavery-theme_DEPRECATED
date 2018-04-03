@@ -27,6 +27,10 @@
     right: 2.5rem;
   }
 
+  .main-grid {
+    @extend .align-center;
+  }
+
   &--container {
     @include xy-grid;
     @extend .align-center;
@@ -34,11 +38,11 @@
     padding-top: 2.5 * $global-padding;
 
     > * {
-      @include xy-cell(10);
+      @include xy-cell(12);
       text-align: center;
 
       @include breakpoint(large) {
-        @include xy-cell(8);
+        @include xy-cell(10);
       }
     }
 

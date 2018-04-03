@@ -29,7 +29,11 @@
       padding: 2rem 0;
 
       @include breakpoint(medium) {
-        @include xy-cell(5);
+        @include xy-cell(10);
+      }
+
+      @include breakpoint(large) {
+        @include xy-cell(6);
       }
 
       @include breakpoint(xlarge) {
@@ -87,6 +91,24 @@
     @include xy-grid;
     @extend .align-center;
 
+    &:after,
+    &:before {
+      background: transparent url('../images/teal-bg-square.png') no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      height: 2rem;
+      width: 100%;
+    }
+    &:after {
+      background-position: center right;
+      margin-top: 0.5rem;
+    }
+    &:before {
+      background-position: center left;
+      margin-bottom: 0.5rem;
+    }
+
     h2 {
       @include xy-cell(10);
       @extend .header-white;
@@ -104,42 +126,32 @@
       @include xy-grid;
       @extend .align-spaced;
       @extend .align-stretch;
-
-      &:after,
-      &:before {
-        background: transparent url('../images/teal-bg-square.png') no-repeat;
-        background-size: contain;
-        content: '';
-        display: block;
-        height: 2rem;
-        width: 100%;
-      }
-      &:after {
-        background-position: center right;
-      }
-      &:before {
-        background-position: center left;
-      }
     }
 
     &--single {
-      @include xy-cell(5);
+      @include xy-cell(10);
       @extend .align-middle;
       @extend .text-center;
       background: $aqua-medium;
       margin-bottom: 1.75 * $global-padding;
       margin-top: 1.75 * $global-padding;
-      padding-bottom: 2.5 * $global-padding;
-      padding-top: 2.5 * $global-padding;
+      padding: 2.5 * $global-padding $global-padding;
 
       a {
         @extend .header-white;
       }
+
+      @include breakpoint(medium) {
+        @include xy-cell(5);
+      }
     }
   }
   &--columns {
-    @include xy-grid;
-    @extend .align-center;
+
+    .main-grid {
+      @include xy-grid;
+      @extend .align-center;
+    }
 
     h2 {
       @include xy-cell(12);
@@ -149,11 +161,11 @@
       text-align: center;
 
       @include breakpoint(medium) {
-        @include xy-cell(10);
+        @include xy-cell(11);
       }
 
       @include breakpoint(large) {
-        @include xy-cell(8);
+        @include xy-cell(10);
       }
     }
 
@@ -161,11 +173,11 @@
       @include xy-cell(12);
 
       @include breakpoint(medium) {
-        @include xy-cell(10);
+        @include xy-cell(11);
       }
 
       @include breakpoint(large) {
-        @include xy-cell(8);
+        @include xy-cell(10);
       }
     }
 
@@ -175,11 +187,11 @@
       text-align: center;
 
       @include breakpoint(medium) {
-        @include xy-cell(10);
+        @include xy-cell(11);
       }
 
       @include breakpoint(large) {
-        @include xy-cell(8);
+        @include xy-cell(10);
       }
 
       h3 {
@@ -190,6 +202,7 @@
 
     &--single {
       @include xy-grid;
+      @extend .align-center;
       @extend .align-middle;
       border-bottom: 1px solid $light-lighter-gray;
 
@@ -200,7 +213,7 @@
         padding-bottom: 1.5 * $global-padding;
         padding-top: 1.5 * $global-padding;
 
-        @include breakpoint(medium) {
+        @include breakpoint(large) {
           @include xy-cell(8);
         }
 
@@ -214,9 +227,11 @@
 
       &-image {
         @include xy-cell(12);
+        max-width: 20rem;
         padding: 1.5 * $global-padding;
+        text-align: center;
 
-        @include breakpoint(medium) {
+        @include breakpoint(large) {
           @include xy-cell(4);
         }
       }
@@ -373,18 +388,24 @@
   &--donate {
     background: $green;
 
+    .main-grid {
+      @extend .align-center;
+    }
+
     &--background {
       background: $white;
       border-radius: 1rem;
-      margin: 0 auto 2rem;
+      height: 100%;
       max-width: 30rem;
       padding: 2rem;
       text-align: center;
     }
 
     &--container {
+      @include xy-cell;
       @include xy-grid;
       @extend .align-center;
+      @extend .align-stretch;
     }
 
     &--footer {
@@ -673,8 +694,10 @@
     }
   }
   &--positions {
-    @include xy-grid;
-    @extend .align-center;
+    .main-grid {
+      @include xy-grid;
+      @extend .align-center;
+    }
 
     &--accordion {
       @include xy-cell(11);
