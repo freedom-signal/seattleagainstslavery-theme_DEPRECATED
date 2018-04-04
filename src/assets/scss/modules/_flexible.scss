@@ -8,12 +8,12 @@
 
     h2 {
       @include xy-cell(10);
-      @extend .header-white;
+      @extend .header;
       color: $primary-color;
     }
     h3 {
       @include xy-cell(10);
-      @extend .subheader-white;
+      @extend .subheader;
       color: $primary-color;
     }
 
@@ -111,13 +111,13 @@
 
     h2 {
       @include xy-cell(10);
-      @extend .header-white;
+      @extend .header;
       color: $primary-color;
     }
 
     h3 {
       @include xy-cell(10);
-      @extend .subheader-white;
+      @extend .subheader;
       color: $primary-color;
     }
 
@@ -372,14 +372,14 @@
 
     h2 {
       @include xy-cell(12);
-      @extend .subheader-white;
+      @extend .subheader;
       @extend .text-center;
       @extend .text-uppercase;
       color: $primary-color;
       font-weight: $global-weight-bold;
     }
     h3 {
-      @extend .subheader-white;
+      @extend .subheader;
       @extend .text-center;
       color: $primary-color;
       font-size: 1rem;
@@ -424,9 +424,14 @@
 
     &--single {
       @include xy-cell(12);
+      margin-bottom: 2rem;
 
       @include breakpoint(medium) {
         @include xy-cell(10);
+      }
+
+      @include breakpoint(large) {
+        @include xy-cell(6);
       }
 
       @include breakpoint(xlarge) {
@@ -858,14 +863,14 @@
 
     h2 {
       @include xy-cell(12);
-      @extend .subheader-white;
+      @extend .subheader;
       @extend .text-center;
       @extend .text-uppercase;
       color: $primary-color;
       font-weight: $global-weight-bold;
     }
     h3 {
-      @extend .subheader-white;
+      @extend .subheader;
       @extend .text-center;
       color: $primary-color;
       font-size: 1rem;
