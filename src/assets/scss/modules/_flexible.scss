@@ -245,6 +245,35 @@
       }
     }
   }
+  &--cta {
+    background: $green url('../images/green-bg_arrow.png') no-repeat center center;
+    background-size: cover;
+
+    h2 {
+      @extend .header-white;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      background: $white;
+      color: $primary-color;
+
+      &:hover {
+        background: darken($white, 5%);
+        color: darken($primary-color, 5%);
+      }
+    }
+
+    .main-grid {
+      @include xy-grid;
+      @extend .align-center;
+      @extend .text-center;
+    }
+
+    &--container {
+      @include xy-cell(10);
+    }
+  }
   &--directors {
     @include xy-grid;
     @extend .align-center;
@@ -527,6 +556,157 @@
           width: 65%;
         }
       }
+    }
+  }
+  &--events {
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+
+    &--after {
+      .flexible--events--container {
+        background: $white;
+        border-radius: 1rem;
+        z-index: 100;
+      }
+    }
+
+    &--container {
+      @include xy-grid;
+      @extend .align-center;
+      padding-bottom: 2.5rem;
+      padding-top: 2.5rem;
+    }
+
+    &--footer {
+      @include xy-cell;
+      @extend .align-center;
+      @extend .text-center;
+      padding-top: 5 * $global-padding;
+
+      .button {
+        @extend .header;
+        @extend .text-orange;
+        @extend .text-uppercase;
+        background: transparent;
+        padding: 0;
+
+        &:hover {
+          color: $orange-medium;
+        }
+      }
+    }
+
+    &--single {
+      @include xy-cell(10);
+      border-bottom: 1px solid $light-lighter-gray;
+      color: $dark-gray;
+      padding: 2.5rem 1rem;
+      position: relative;
+      text-align: center;
+
+      @include breakpoint(medium) {
+        @include xy-cell(5);
+        border-bottom: 0;
+
+        &:after {
+          border-right: 1px solid $light-lighter-gray;
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          right: -0.5 * map-get($grid-margin-gutters, medium);
+          top: 0;
+        }
+
+        &:last-child {
+          &:after {
+            border-right: 0;
+          }
+        }
+      }
+
+      @include breakpoint(medium only) {
+        &:nth-child(2n) {
+          &:after {
+            border-right: 0;
+          }
+        }
+      }
+
+      @include breakpoint(large) {
+        @include xy-cell(4);
+      }
+
+      h4 {
+        @extend .subheader;
+        color: $dark-gray;
+        font-weight: $global-weight-bold;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+
+        @include breakpoint(large) {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      &--date {
+        font-size: 1.5 * $global-font-size !important;
+      }
+
+      &--title {
+        @extend .header-small;
+        color: $dark-gray;
+        font-weight: $global-weight-bold;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+
+        @include breakpoint(large) {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    &--title {
+      @include xy-grid;
+      @include xy-cell;
+      @extend .align-stretch;
+      @extend .header;
+      margin-bottom: 5 * $global-padding;
+
+      span {
+        @include xy-cell;
+        color: $primary-color;
+        min-height: rem-calc(30);
+        text-align: center;
+
+        @include breakpoint(large) {
+          @include xy-cell(6);
+        }
+
+        &.spacer {
+          background: url('../images/teal-bg_light-top.png') no-repeat center center;
+          background-size: contain;
+
+          &:last-of-type {
+            background-image: url('../images/teal-bg_light-bottom.png');
+          }
+
+          @include breakpoint(large) {
+            @include xy-cell(3);
+            background-image: url('../images/teal-bg_top.png');
+
+            &:last-of-type {
+              background-image: url('../images/teal-bg_bottom.png');
+            }
+          }
+        }
+      }
+    }
+
+    &--wrapper {
+      @include xy-grid;
+      @include xy-cell;
+      @extend .align-center;
     }
   }
   &--films {

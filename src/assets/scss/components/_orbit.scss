@@ -1,0 +1,74 @@
+.orbit {
+  &-bullets {
+    button {
+      border: 2px solid $white;
+    }
+
+    @include breakpoint(large) {
+      position: absolute;
+      right: 2.5rem;
+      top: 4rem;
+      width: 2rem;
+    }
+  }
+  &-caption {
+    background: transparent;
+    justify-content: center;
+    top: 0;
+
+    &:before {
+      bottom: 0;
+      content: '';
+      background: linear-gradient(to right, transparentize($white, 0.5) 0%, transparentize($white, 0.5) 55%, transparentize($white, 1) 100%);
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    &--container {
+      @include xy-grid;
+      @extend .main-container;
+    }
+
+    p {
+      @include xy-cell(7);
+      @extend h1;
+      bottom: 5rem;
+      font-size: 2rem;
+      line-height: 1.1;
+      position: absolute;
+      text-shadow: 0 0 2px transparentize($white, 0.35);
+
+      @include breakpoint(medium) {
+        @include xy-cell(6);
+        font-size: 2.75rem;
+      }
+
+      @include breakpoint(large) {
+        bottom: auto;
+        font-size: 3.25rem;
+        line-height: 1.25;
+        top: 50%;
+      }
+
+      @include breakpoint(xlarge) {
+        @include xy-cell(5);
+      }
+    }
+  }
+  &-figure {
+    position: relative;
+    max-height: rem-calc(750);
+    overflow: hidden;
+
+    &-large {
+      background: no-repeat center center;
+      background-size: cover;
+
+      img {
+        visibility: hidden;
+      }
+    }
+  }
+}
