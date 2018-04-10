@@ -788,6 +788,47 @@
       }
     }
   }
+  &--not-found {
+    @include xy-grid;
+    @extend .align-center;
+
+    h2 {
+      @include xy-cell(10);
+      @extend .header;
+      color: $primary-color;
+    }
+
+    ul {
+      @include xy-cell(10);
+      list-style: none;
+    }
+
+    li {
+      @extend .subheader;
+      color: $primary-color;
+      margin: 0;
+      padding: 1rem;
+      position: relative;
+
+      &:after {
+        border-bottom: 1px solid $light-lighter-gray;
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, 0);
+        width: 5rem;
+      }
+    }
+
+    &--container {
+      @include xy-cell(12);
+      @include xy-grid;
+      @extend .align-center;
+      @extend .align-stretch;
+    }
+  }
   &--organizations {
     @include xy-grid;
     @extend .align-center;
