@@ -11,6 +11,11 @@
       @include breakpoint(medium) {
         justify-content: center;
       }
+
+      .single-post & {
+        min-height: 10rem;
+        padding-top: 2.5 * $global-padding;
+      }
     }
     &-content {
       @include xy-cell(12);
