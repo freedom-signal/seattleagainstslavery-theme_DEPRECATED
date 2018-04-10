@@ -1,27 +1,42 @@
 <?php $books = get_field( 'books' );
-if ( $books['books'] ): ?>
-	<section class="flexible flexible--books">
-		<div class="main-container">
-			<div class="main-grid">
-				<div class="flexible--books--container">
-					<?php if ( $books['title'] ): ?>
-						<h2><?= $books['title']; ?></h2>
-					<?php endif; ?>
-					<?php if ( $books['subtitle'] ): ?>
-						<h3><?= $books['subtitle']; ?></h3>
-					<?php endif; ?>
-					<?php foreach ( $books['books'] as $book ): ?>
-						<div class="flexible--books--single">
-							<a href="<?= $book['url']; ?>">
-						<span>
-							<?= $book['title']; ?>
-							<small><?= __( 'By', 'foundationpress' ); ?> <?= $book['author']; ?></small>
-						</span>
-							</a>
-						</div>
-					<?php endforeach; ?>
+
+if ( $books['category'] ):
+	$the_query = new WP_Query( array(
+		'post_type' => 'resource',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'type',
+				'field'    => 'term_id',
+				'terms'    => $books['category'],
+			)
+		),
+	) );
+
+	if ( $the_query->have_posts() ): ?>
+		<section class="flexible flexible--books">
+			<div class="main-container">
+				<div class="main-grid">
+					<div class="flexible--books--container">
+						<?php if ( $books['title'] ): ?>
+							<h2><?= $books['title']; ?></h2>
+						<?php endif; ?>
+						<?php if ( $books['subtitle'] ): ?>
+							<h3><?= $books['subtitle']; ?></h3>
+						<?php endif; ?>
+						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
+							<div class="flexible--books--single">
+								<a href="<?= get_field('url'); ?>">
+									<span>
+										<?php the_title() ?>
+										<small><?= __( 'By', 'foundationpress' ); ?> <?= get_field('author'); ?></small>
+									</span>
+								</a>
+							</div>
+						<?php endwhile; ?>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-<?php endif; ?>
+		</section>
+	<?php endif;
+	wp_reset_postdata();
+endif; ?>

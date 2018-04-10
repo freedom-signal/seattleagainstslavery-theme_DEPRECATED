@@ -3,6 +3,35 @@
 function register_cpt() {
 
 	$labels = array(
+		'name'          => __( 'Resources', 'foundationpress' ),
+		'singular_name' => __( 'Resource', 'foundationpress' ),
+	);
+
+	$args = array(
+		'has_archive' => true,
+		'label'       => __( 'Resources', 'foundationpress' ),
+		'labels'      => $labels,
+		'menu_icon'   => 'dashicons-paperclip',
+		'public'      => true,
+		'rewrite'     => array( 'slug' => 'resource', 'with_front' => false ),
+		'show_ui'     => true,
+		'supports'    => array( 'title', 'custom-fields' )
+	);
+	register_post_type( 'resource', $args );
+
+	register_taxonomy( 'type', array( 'resource' ), array(
+			'hierarchical'   => true,
+			'label'          => 'Type',
+			'singular_label' => 'Type',
+			'rewrite'        => array(
+				'slug'       => 'resource',
+				'with_front' => false
+			)
+		)
+	);
+	register_taxonomy_for_object_type( 'categories', 'resource' );
+
+	$labels = array(
 		'name'          => __( 'Team Members', 'foundationpress' ),
 		'singular_name' => __( 'Team Member', 'foundationpress' ),
 	);

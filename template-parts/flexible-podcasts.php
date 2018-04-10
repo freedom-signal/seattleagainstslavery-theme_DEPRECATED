@@ -1,21 +1,34 @@
 <?php $podcasts = get_field( 'podcast' );
-if ( $podcasts['podcasts'] ): ?>
-	<section class="flexible flexible--podcasts">
-		<div class="main-container">
-			<div class="main-grid">
-				<div class="flexible--podcasts--container">
-					<?php if ( $podcasts['title'] ): ?>
-						<h2><?= $podcasts['title']; ?></h2>
-					<?php endif; ?>
-					<?php if ( $podcasts['podcasts'] ): ?>
-						<?php foreach ( $podcasts['podcasts'] as $podcast ): ?>
+
+if ( $podcasts['category'] ):
+	$the_query = new WP_Query( array(
+		'post_type' => 'resource',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'type',
+				'field'    => 'term_id',
+				'terms'    => $podcasts['category'],
+			)
+		),
+	) );
+
+	if ( $the_query->have_posts() ): ?>
+		<section class="flexible flexible--podcasts">
+			<div class="main-container">
+				<div class="main-grid">
+					<div class="flexible--podcasts--container">
+						<?php if ( $podcasts['title'] ): ?>
+							<h2><?= $podcasts['title']; ?></h2>
+						<?php endif; ?>
+						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<div class="flexible--podcasts--single">
-								<a href="<?= $podcast['url']; ?>"><?= $podcast['title']; ?></a>
+								<a href="<?= get_field( 'link' ); ?>"><?php the_title() ?></a>
 							</div>
-						<?php endforeach; ?>
-					<?php endif; ?>
+						<?php endwhile; ?>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-<?php endif; ?>
+		</section>
+	<?php endif;
+	wp_reset_postdata();
+endif; ?>

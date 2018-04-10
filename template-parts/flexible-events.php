@@ -1,4 +1,6 @@
 <?php
+
+if(function_exists('tribe_get_events')):
 $events = tribe_get_events( array(
 	'posts_per_page' => 3,
 ) );
@@ -39,4 +41,5 @@ if ( $events ): ?>
 				</div>
 			</div>
 	</section>
-<?php endif; ?>
+<?php endif;
+endif; ?>
