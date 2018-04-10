@@ -32,6 +32,24 @@ function register_cpt() {
 	);
 
 	register_taxonomy_for_object_type( 'categories', 'team' );
+
+	$labels = array(
+		'name'          => __( 'Volunteers', 'foundationpress' ),
+		'singular_name' => __( 'Volunteer', 'foundationpress' ),
+	);
+
+	$args = array(
+		'has_archive' => true,
+		'label'       => __( 'Volunteers', 'foundationpress' ),
+		'labels'      => $labels,
+		'menu_icon'   => 'dashicons-id-alt',
+		'public'      => true,
+		'rewrite'     => array( 'slug' => 'volunteer', 'with_front' => true ),
+		'show_ui'     => true,
+		'supports'    => array( 'title', 'custom-fields' )
+	);
+
+	register_post_type( 'volunteer', $args );
 }
 
 add_action( 'init', 'register_cpt' );
