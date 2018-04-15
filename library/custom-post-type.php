@@ -44,7 +44,7 @@ function register_cpt() {
 		'public'      => true,
 		'rewrite'     => array( 'slug' => 'team', 'with_front' => true ),
 		'show_ui'     => true,
-		'supports'    => array( 'title', 'thumbnail', 'custom-fields' )
+		'supports'    => array( 'title', 'thumbnail', 'custom-fields', 'page-attributes' )
 	);
 
 	register_post_type( 'team', $args );
