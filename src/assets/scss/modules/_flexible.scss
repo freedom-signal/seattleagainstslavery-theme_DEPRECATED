@@ -147,7 +147,6 @@
     }
   }
   &--columns {
-
     .main-grid {
       @include xy-grid;
       @extend .align-center;

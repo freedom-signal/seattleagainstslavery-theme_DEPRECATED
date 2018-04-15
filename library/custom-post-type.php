@@ -15,7 +15,7 @@ function register_cpt() {
 		'public'      => true,
 		'rewrite'     => array( 'slug' => 'resource', 'with_front' => false ),
 		'show_ui'     => true,
-		'supports'    => array( 'title', 'custom-fields' )
+		'supports'    => array( 'title', 'custom-fields', 'page-attributes' )
 	);
 	register_post_type( 'resource', $args );
 
@@ -75,7 +75,7 @@ function register_cpt() {
 		'public'      => true,
 		'rewrite'     => array( 'slug' => 'volunteer', 'with_front' => true ),
 		'show_ui'     => true,
-		'supports'    => array( 'title', 'custom-fields' )
+		'supports'    => array( 'title', 'custom-fields', 'page-attributes' )
 	);
 
 	register_post_type( 'volunteer', $args );

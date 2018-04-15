@@ -1,8 +1,9 @@
 import $ from 'jquery';
-import whatInput from 'what-input';
 
 window.$ = $;
 import Foundation from 'foundation-sites';
+
+
 
 function setEventsMargin() {
   var $events = $('.flexible--events');

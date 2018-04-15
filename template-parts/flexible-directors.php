@@ -1,6 +1,8 @@
 <?php $directors = get_field( 'directors' );
 $the_query       = new WP_Query( array(
 	'post_type' => 'team',
+	'orderby' => 'menu_order',
+	'order' => 'ASC',
 	'tax_query' => array(
 		array(
 			'taxonomy' => 'organization',

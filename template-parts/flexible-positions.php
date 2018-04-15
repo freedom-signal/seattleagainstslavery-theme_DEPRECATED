@@ -1,5 +1,7 @@
 <?php $the_query = new WP_Query( array(
-	'post_type' => 'volunteer'
+	'post_type' => 'volunteer',
+	'orderby' => 'menu_order',
+	'order' => 'ASC'
 ) );
 
 if ( $the_query->have_posts() ): ?>
