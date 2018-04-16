@@ -244,6 +244,21 @@
       }
     }
   }
+  &--content {
+    @include xy-grid;
+    @extend .align-center;
+
+    h2 {
+      @include xy-cell(12);
+      @extend .header;
+      color: $primary-color;
+    }
+    h3 {
+      @include xy-cell(12);
+      @extend .subheader;
+      color: $primary-color;
+    }
+  }
   &--cta {
     background: $green url('../images/green-bg_arrow.png') no-repeat center center;
     background-size: cover;
@@ -564,6 +579,7 @@
     &--after {
       .flexible--events--container {
         background: $white;
+        border: 1px solid $light-lighter-gray;
         border-radius: 1rem;
         z-index: 100;
       }

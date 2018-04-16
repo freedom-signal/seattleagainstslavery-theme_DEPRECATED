@@ -1,4 +1,9 @@
-<?php $podcasts = get_field( 'podcast' );
+<?php
+if ( get_field( 'podcast' ) ):
+	$podcasts = get_field( 'podcast' );
+elseif ( get_sub_field( 'podcast' ) ):
+	$podcasts = get_sub_field( 'podcast' );
+endif;
 
 if ( $podcasts['category'] ):
 	$the_query = new WP_Query( array(

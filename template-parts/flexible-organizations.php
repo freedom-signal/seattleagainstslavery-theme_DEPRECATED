@@ -1,4 +1,9 @@
-<?php $organizations = get_field( 'orgs' );
+<?php
+if ( get_field( 'orgs' ) ):
+	$organizations = get_field( 'orgs' );
+elseif ( get_sub_field( 'orgs' ) ):
+	$organizations = get_sub_field( 'orgs' );
+endif;
 
 if ( $organizations['category'] ):
 	$the_query = new WP_Query( array(

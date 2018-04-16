@@ -1342,6 +1342,15 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
 						'min'        => '',
 						'max'        => '',
 					),
+					'5ad3f7c3ac9f5' => array(
+						'key'        => '5ad3f7c3ac9f5',
+						'name'       => 'volunteer_section',
+						'label'      => 'Volunteer Section',
+						'display'    => 'block',
+						'sub_fields' => array(),
+						'min'        => '',
+						'max'        => '',
+					),
 					'5acc6e0ee4360' => array(
 						'key'        => '5acc6e0ee4360',
 						'name'       => 'row_section',
@@ -1632,7 +1641,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
 					'5acc6e07e4310' => array(
 						'key'        => '5acc6e07e4310',
 						'name'       => 'podcast_section',
-						'label'      => 'Podcast',
+						'label'      => 'Podcasts Section',
 						'display'    => 'block',
 						'sub_fields' => array(
 							array(

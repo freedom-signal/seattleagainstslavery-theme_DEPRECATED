@@ -1,5 +1,10 @@
-<?php $donate = get_field( 'donate' );
-if ( $donate ): ?>
+<?php
+if ( get_field( 'donate' ) ):
+	$donate = get_field( 'donate' );
+elseif ( get_sub_field( 'donate' ) ):
+	$donate = get_sub_field( 'donate' );
+endif;
+if ( $donate['columns'] ): ?>
 	<section class="flexible flexible--donate">
 		<div class="main-container">
 			<div class="main-grid">

@@ -1,4 +1,9 @@
-<?php $films = get_field( 'films' );
+<?php 
+if ( get_field( 'films' ) ):
+	$films = get_field( 'films' );
+elseif ( get_sub_field( 'films' ) ):
+	$films = get_sub_field( 'films' );
+endif;
 
 if ( $films['category'] ):
 	$the_query = new WP_Query( array(

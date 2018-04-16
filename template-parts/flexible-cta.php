@@ -1,5 +1,9 @@
 <?php
-$cta = get_field( 'call_to_action' );
+if ( get_field( 'call_to_action' ) ):
+	$cta = get_field( 'call_to_action' );
+elseif ( get_sub_field( 'call_to_action' ) ):
+	$cta = get_sub_field( 'call_to_action' );
+endif;
 
 if ( $cta['link'] ): ?>
 	<section class="flexible flexible--cta">

@@ -1,4 +1,9 @@
-<?php $columns = get_field( 'columns' );
+<?php
+if ( get_field( 'columns' ) ):
+	$columns = get_field( 'columns' );
+elseif ( get_sub_field( 'columns' ) ):
+	$columns = get_sub_field( 'columns' );
+endif;
 if ( $columns['columns'] ): ?>
 	<section class="flexible flexible--columns">
 		<div class="main-container">
