@@ -597,7 +597,7 @@
 
     &--single {
       @include xy-cell(10);
-      border-bottom: 1px solid $light-lighter-gray;
+      border-bottom: 1px solid $aqua;
       color: $dark-gray;
       padding: 2.5rem 1rem;
       position: relative;
@@ -608,7 +608,7 @@
         border-bottom: 0;
 
         &:after {
-          border-right: 1px solid $light-lighter-gray;
+          border-right: 1px solid $aqua;
           content: '';
           display: block;
           height: 100%;
@@ -638,7 +638,7 @@
 
       h4 {
         @extend .subheader;
-        color: $dark-gray;
+        color: $primary-color;
         font-weight: $global-weight-bold;
         line-height: 1.1;
         margin-bottom: 0.25rem;
@@ -649,15 +649,15 @@
       }
 
       &--date {
-        font-size: 1.5 * $global-font-size !important;
+        color: $aqua-medium !important;
+        font-size: 1.75 * $global-font-size !important;
       }
 
       &--title {
         @extend .header-small;
-        color: $dark-gray;
         font-weight: $global-weight-bold;
         line-height: 1.1;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
 
         @include breakpoint(large) {
           margin-bottom: 0.5rem;
