@@ -22,11 +22,10 @@ if ( $categories ) :
 		<hr/>
 		<div class="content--post-related">
 			<?php while ( $query->have_posts() ): $query->the_post();
-				$url = get_stylesheet_directory_uri() . '/dist/assets/images/default-bg.png';
 				if ( has_post_thumbnail() ) :
-					$url = get_the_post_thumbnail_url();
-				endif; ?>
-				<div class="content--post-related--image" style="background-image: url('<?= $url; ?>')"></div>
+					$url = get_the_post_thumbnail_url(); ?>
+					<div class="content--post-related--image" style="background-image: url('<?= $url; ?>')"></div>
+				<?php endif; ?>
 				<div class="content--post-related--content">
 					<h2 class="content--post-content--title"><?php the_title(); ?></h2>
 					<span class="content--post-content--meta">
