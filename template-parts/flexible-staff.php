@@ -7,10 +7,11 @@ endif;
 
 if ( $staff['category'] ):
 	$the_query = new WP_Query( array(
-		'post_type' => 'team',
-		'orderby'   => 'menu_order',
-		'order'     => 'ASC',
-		'tax_query' => array(
+		'posts_per_page' => - 1,
+		'post_type'      => 'team',
+		'orderby'        => 'menu_order',
+		'order'          => 'ASC',
+		'tax_query'      => array(
 			array(
 				'taxonomy' => 'organization',
 				'field'    => 'term_id',
