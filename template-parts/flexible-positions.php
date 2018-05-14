@@ -19,7 +19,7 @@ if ( $the_query->have_posts() ): ?>
 									<h3><?= __( 'Desired Skills:', 'foundationpress' ); ?></h3>
 									<?= get_field( 'skills' ); ?>
 									<a
-										href="mailto:<?= get_field( 'contact' ); ?>?subject=<?= get_field( 'title' ); ?> volunteer position">
+										href="mailto:<?= get_field( 'contact' ); ?>?subject=<?= get_the_title(); ?> volunteer position">
 										<?= __( 'Apply Now', 'foundationpress' ); ?>
 									</a>
 								</div>
