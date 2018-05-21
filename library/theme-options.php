@@ -18,6 +18,23 @@ function customize_register( $wp_customize ) {
 		'settings' => 'sas_logo_desktop',
 	) ) );
 
+	$wp_customize->add_section( 'api', array(
+		'priority' => 30,
+		'title'    => __( 'API Keys', 'foundationpress' )
+	) );
+	$wp_customize->add_setting( 'stripe_publishable' );
+	$wp_customize->add_control( 'stripe_publishable', array(
+		'label'   => __( 'Stripe Publishable Key', 'foundationpress' ),
+		'section' => 'api',
+		'type'    => 'text'
+	) );
+	$wp_customize->add_setting( 'stripe_secret' );
+	$wp_customize->add_control( 'stripe_secret', array(
+		'label'   => __( 'Stripe Secret Key', 'foundationpress' ),
+		'section' => 'api',
+		'type'    => 'text'
+	) );
+
 	$wp_customize->add_section( 'contact_social', array(
 		'priority' => 30,
 		'title'    => __( 'Contact & Social', 'foundationpress' )

@@ -3,7 +3,8 @@ import $ from 'jquery';
 window.$ = $;
 import Foundation from 'foundation-sites';
 
-
+$(document).foundation();
+$('.sas-donate-form').donate();
 
 function setEventsMargin() {
   var $events = $('.flexible--events');
@@ -71,8 +72,6 @@ function setEventsMargin() {
   }
 }
 
-$(document).foundation();
-
 (function ($) {
   setEventsMargin();
 
@@ -80,3 +79,4 @@ $(document).foundation();
     setEventsMargin();
   });
 })(jQuery);
+

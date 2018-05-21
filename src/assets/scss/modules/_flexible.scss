@@ -158,26 +158,10 @@
       @extend .text-uppercase;
       margin-bottom: 1.5 * $global-padding;
       text-align: center;
-
-      @include breakpoint(medium) {
-        @include xy-cell(11);
-      }
-
-      @include breakpoint(large) {
-        @include xy-cell(10);
-      }
     }
 
     &--container {
       @include xy-cell(12);
-
-      @include breakpoint(medium) {
-        @include xy-cell(11);
-      }
-
-      @include breakpoint(large) {
-        @include xy-cell(10);
-      }
     }
 
     &--footer {
@@ -439,6 +423,7 @@
       background: $white;
       border-radius: 1rem;
       height: 100%;
+      margin: 0 auto;
       max-width: 30rem;
       padding: 2rem;
       text-align: center;
@@ -453,7 +438,6 @@
 
     &--footer {
       @include xy-grid;
-      @extend .align-center;
 
       h3 {
         @include xy-cell;
@@ -470,15 +454,11 @@
       margin-bottom: 2rem;
 
       @include breakpoint(medium) {
-        @include xy-cell(10);
+        @include xy-cell(11);
       }
 
       @include breakpoint(large) {
         @include xy-cell(6);
-      }
-
-      @include breakpoint(xlarge) {
-        @include xy-cell(5);
       }
 
       &-content {
@@ -486,7 +466,7 @@
           letter-spacing: 1.5px;
         }
 
-        form {
+        .sas-donate-form {
           margin: 0 auto;
           max-width: 100%;
 
@@ -494,16 +474,35 @@
             max-width: 80%;
           }
 
-          .button {
+          &--accordion {
+            @extend .accordion;
+
+            &-item {
+              @extend .accordion-item;
+            }
+          }
+          &--button {
+            @extend .button;
+            @extend .button-round;
+            @extend .button-large;
+            @extend .button.primary;
             font-weight: $global-weight-medium;
             margin-top: 2rem;
             text-transform: capitalize;
           }
-          .input-group {
+          &--credit-card {
+            display: none;
+          }
+          &--error {
+            display: none;
+          }
+          &--input-group {
+            @extend .input-group;
             background: $light-gray;
             padding: $button-padding;
 
-            .input-group-field {
+            &--field {
+              @extend .input-group-field;
               background: transparent;
               border: 0 !important;
               border-bottom: 2px solid $primary-color !important;
@@ -522,13 +521,14 @@
               }
 
             }
-            .input-group-label {
+            &--label {
+              @extend .input-group-label;
               border: 0 !important;
               border-bottom: 2px solid $primary-color !important;
               line-height: 2.5rem;
               padding: 0;
 
-              &.input-group-cents {
+              &-cents {
                 font-size: 2 * $global-font-size;
                 padding: 0 0.25rem 0 0;
 
@@ -537,7 +537,7 @@
                 }
               }
 
-              &.input-group-currency {
+              &-currency {
                 font-size: 1.25 * $global-font-size;
                 padding: 0 1rem 0 0.25rem;
 
@@ -546,7 +546,7 @@
                 }
               }
 
-              &.input-group-symbol {
+              &-symbol {
                 font-size: 2 * $global-font-size;
                 padding: 0 0 0 1rem;
 
