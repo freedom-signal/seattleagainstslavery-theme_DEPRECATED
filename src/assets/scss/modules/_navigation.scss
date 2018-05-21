@@ -96,7 +96,7 @@
     @include breakpoint(large) {
       &.menu {
         a {
-          font-size: 1rem;
+          font-size: 1.25rem;
 
           &:hover:not(.button) {
             color: $secondary-color;
@@ -113,6 +113,7 @@
             @include button;
             @include button-style($green-medium, darken($green, 10%), $white);
             border-radius: rem-calc(40);
+            font-size: 1.25rem;
             margin-left: 1rem;
 
             @include breakpoint(xlarge) {
