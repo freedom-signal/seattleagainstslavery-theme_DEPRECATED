@@ -557,6 +557,25 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
 		'title'                 => '[Template Type] About Template',
 		'fields'                => array(
 			array(
+				'key'               => 'field_5b04e3debd9c2',
+				'label'             => 'Mission Section',
+				'name'              => 'mission_section',
+				'type'              => 'wysiwyg',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'tabs'              => 'all',
+				'toolbar'           => 'full',
+				'media_upload'      => 0,
+				'delay'             => 0,
+			),
+			array(
 				'key'               => 'field_5ac18c519c5a5',
 				'label'             => 'Staff Section',
 				'name'              => 'staff',
