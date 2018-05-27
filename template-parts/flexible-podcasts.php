@@ -8,8 +8,8 @@ endif;
 if ( $podcasts['category'] ):
 	$the_query = new WP_Query( array(
 		'post_type' => 'resource',
-		'orderby' => 'menu_order',
-		'order' => 'ASC',
+		'orderby'   => 'menu_order',
+		'order'     => 'ASC',
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'type',
@@ -29,7 +29,9 @@ if ( $podcasts['category'] ):
 						<?php endif; ?>
 						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<div class="flexible--podcasts--single">
-								<a href="<?= get_field( 'link' ); ?>"><?php the_title() ?></a>
+								<a href="<?= get_field( 'link' ); ?>" target="<?php if ( get_field( 'target_blank' ) ) {
+									echo '_blank';
+								} ?>"><?php the_title() ?></a>
 							</div>
 						<?php endwhile; ?>
 					</div>

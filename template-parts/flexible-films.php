@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ( get_field( 'films' ) ):
 	$films = get_field( 'films' );
 elseif ( get_sub_field( 'films' ) ):
@@ -32,7 +32,9 @@ if ( $films['category'] ):
 						<?php endif; ?>
 						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<div class="flexible--films--single">
-								<a href="<?= get_field( 'link' ); ?>">
+								<a href="<?= get_field( 'link' ); ?>" target="<?php if ( get_field( 'target_blank' ) ) {
+									echo '_blank';
+								} ?>">
 									<span><?php the_title() ?></span>
 								</a>
 							</div>

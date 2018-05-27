@@ -124,6 +124,25 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
 				'default_value'     => '',
 				'placeholder'       => '',
 			),
+			array(
+				'key'               => 'field_5b0a4ff3016b5',
+				'label'             => 'Open in new tab?',
+				'name'              => 'target_blank',
+				'type'              => 'true_false',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'message'           => '',
+				'default_value'     => 1,
+				'ui'                => 0,
+				'ui_on_text'        => '',
+				'ui_off_text'       => '',
+			),
 		),
 		'location'              => array(
 			array(

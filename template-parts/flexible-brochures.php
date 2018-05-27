@@ -27,7 +27,9 @@ if ( $brochures['category'] ):
 						<?php endif; ?>
 						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<div class="flexible--brochures--single">
-								<a href="<?= get_field('url'); ?>"><?php the_title() ?></a>
+								<a href="<?= get_field('url'); ?>" target="<?php if ( get_field( 'target_blank' ) ) {
+									echo '_blank';
+								} ?>"><?php the_title() ?></a>
 							</div>
 						<?php endwhile; ?>
 					</div>
