@@ -1,7 +1,7 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: ""
+  url: "http://wp.local/sas"
 
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
@@ -28,6 +28,7 @@ PATHS:
   entries:
     - "src/assets/js/app.js"
     - "src/assets/js/donate.js"
+    - "src/assets/js/events.js"
   # Paths for the package task to include/exclude in .zip archive
   package:
     - "**/*"

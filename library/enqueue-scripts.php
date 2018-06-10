@@ -37,6 +37,9 @@ endif;
 if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
+		// Enqueue slick's stylesheet
+		wp_enqueue_style( 'slick-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', array(), '1.9.0', 'all' );
+
 		// Enqueue the main Stylesheet.
 		wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), '2.10.4', 'all' );
 
@@ -46,13 +49,21 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
 		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', false );
 
+		// CDN hosted slick js.
+		wp_enqueue_script( 'slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array( 'jquery' ), '1.9.0', true );
+
 		// Enqueue Donate scripts
 		wp_enqueue_script( 'donate', get_template_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'donate.js' ), array( 'jquery' ), '1.0.0', true );
+
+		// Enqueue Hero scripts
+		wp_enqueue_script( 'events', get_template_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'events.js' ), array( 'jquery' ), '1.0.0', true );
 
 		// Enqueue Foundation scripts
 		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array(
 			'jquery',
-			'donate'
+			'slick-js',
+			'donate',
+			'events'
 		), '2.10.4', true );
 
 		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
