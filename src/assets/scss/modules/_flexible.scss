@@ -771,7 +771,7 @@
           border-radius: 50%;
           content: '';
           height: 12rem;
-          left: 0;
+          left: 3px;
           position: absolute;
           top: 0;
           width: 12rem;
@@ -793,7 +793,7 @@
         span {
           @extend .align-middle;
           display: flex;
-          font-size: 1.65 * $global-font-size;
+          font-size: 1.30 * $global-font-size;
           font-weight: $global-weight-medium;
           height: 8rem;
           line-height: 1.1;
