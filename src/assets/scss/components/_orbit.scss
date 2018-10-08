@@ -3,22 +3,20 @@
   &-slide {
     background: transparent no-repeat center center;
     background-size: cover;
-    text-shadow: 0 0 2px transparentize($white, 0.35);
+
 
     &-caption {
       @include xy-cell(12);
       z-index: 10;
+      color: $white;
+      font-weight: bold;
 
-      @include breakpoint(medium) {
-        @include xy-cell(10);
-
-      }
-      @include breakpoint(xlarge) {
-        @include xy-cell(8);
+      a {
+        color: $white;
       }
 
       h1 {
-        font-size: 3.25rem;
+        font-size: 2.25rem;
       }
 
       h2 {
@@ -35,24 +33,49 @@
 
       h5,
       p {
-        font-size: 1.75rem;
+        font-size: 1rem;
       }
 
       h6 {
-        font-size: 1.5rem;
+        font-size: .75rem;
+      }
+
+      @include breakpoint(medium) {
+        @include xy-cell(10);
+        h1 {
+          font-size: 3rem;
+        }
+
+        h5,
+        p {
+          font-size: 1.5rem;
+        }
+      }
+
+      @include breakpoint(xlarge) {
+        @include xy-cell(8);
+        
+        h1 {
+          font-size: 3.25rem;
+        }
+
+        h5,
+        p {
+          font-size: 1.75rem;
+        }
       }
     }
 
     &-container {
       @include xy-grid;
       @extend .main-container;
-      padding-top: 5rem;
-      padding-bottom: 5rem;
+      padding-top: 3rem;
+      padding-bottom: 2rem;
 
       &:after {
         bottom: 0;
         content: '';
-        background: transparentize($white, 0.9);
+        background: transparentize($blue-medium, 0.05);
         left: 0;
         position: absolute;
         right: 0;
