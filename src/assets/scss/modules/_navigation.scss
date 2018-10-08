@@ -136,6 +136,10 @@
       color: $primary-color;
       padding-left: 1rem;
       line-height: 2;
+
+      img {
+        max-height: 100px;
+      }
     }
   }
 
@@ -221,6 +225,10 @@
     a {
       font-size: 1rem;
       color: $medium-gray;
+      
+      img {
+        max-height: 100px;
+      }
     }
   }
 }

@@ -6,7 +6,8 @@ var slickOptions = {
   adaptiveHeight: true,
   arrows: false,
   dots: true,
-  mobileFirst: true
+  mobileFirst: true,
+  autoplay: true
 };
 
 $(document).foundation();
