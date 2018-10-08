@@ -2,6 +2,7 @@
 
 if(function_exists('tribe_get_events')):
 $events = tribe_get_events( array(
+	'eventDisplay'		=>	'upcoming',
 	'posts_per_page' => 3,
 ) );
 
