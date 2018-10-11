@@ -26,7 +26,7 @@ if ( $staff['category'] ):
 				<div class="main-grid">
 					<div class="flexible--staff--container">
 						<?php if ( $staff['title'] ): ?>
-							<h2 class="flexible--staff--title"><?= $staff['title']; ?></h2>
+							<h1 class="flexible--staff--title"><?= $staff['title']; ?></h1>
 						<?php endif; ?>
 						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<div class="flexible--staff--single">

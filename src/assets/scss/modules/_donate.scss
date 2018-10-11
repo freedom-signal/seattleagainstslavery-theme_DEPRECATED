@@ -1,0 +1,165 @@
+.flexible {
+  padding-bottom: 3 * $global-padding;
+  padding-top: 3 * $global-padding;
+
+  &--donate {
+    background: $green;
+
+    .main-grid {
+      @extend .align-center;
+    }
+
+    &--background {
+      background: $white;
+      border-radius: 1rem;
+      height: 100%;
+      margin: 0 auto;
+      max-width: 30rem;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    &--container {
+      @include xy-cell;
+      @include xy-grid;
+      @extend .align-center;
+      @extend .align-stretch;
+    }
+
+    &--footer {
+      @include xy-grid;
+
+      h3 {
+        @include xy-cell;
+        color: $white;
+        font-weight: $global-weight-light;
+        margin-bottom: 0;
+        margin-top: 1.5 * $global-padding;
+        text-align: center;
+      }
+    }
+
+    &--single {
+      @include xy-cell(12);
+      margin-bottom: 2rem;
+
+      @include breakpoint(medium) {
+        @include xy-cell(11);
+      }
+
+      @include breakpoint(large) {
+        @include xy-cell(6);
+      }
+
+      &-content {
+        &--title {
+          letter-spacing: 1.5px;
+        }
+
+        .sas-donate-form {
+          margin: 0 auto;
+          max-width: 100%;
+
+          @include breakpoint(medium) {
+            max-width: 80%;
+          }
+
+          &--accordion {
+            @extend .accordion;
+
+            &-item {
+              @extend .accordion-item;
+            }
+          }
+          &--button {
+            @extend .button;
+            @extend .button-round;
+            @extend .button-large;
+            @extend .button.primary;
+            font-weight: $global-weight-medium;
+            margin-top: 2rem;
+            text-transform: capitalize;
+          }
+          &--credit-card {
+            display: none;
+          }
+          &--error {
+            display: none;
+          }
+          &--input-group {
+            @extend .input-group;
+            background: $light-gray;
+            padding: $button-padding;
+
+            &--field {
+              @extend .input-group-field;
+              background: transparent;
+              border: 0 !important;
+              border-bottom: 2px solid $primary-color !important;
+              box-shadow: none;
+              font-size: 2 * $global-font-size;
+              line-height: 2.5rem;
+              text-align: right;
+              width: auto;
+
+              &:focus {
+                outline: 0;
+              }
+
+              @include placeholder {
+                color: transparentize($primary-color, 0.25);
+              }
+
+            }
+            &--label {
+              @extend .input-group-label;
+              border: 0 !important;
+              border-bottom: 2px solid $primary-color !important;
+              line-height: 2.5rem;
+              padding: 0;
+
+              &-cents {
+                font-size: 2 * $global-font-size;
+                padding: 0 0.25rem 0 0;
+
+                @include breakpoint(medium) {
+                  padding: 0 0.5rem 0 0;
+                }
+              }
+
+              &-currency {
+                font-size: 1.25 * $global-font-size;
+                padding: 0 1rem 0 0.25rem;
+
+                @include breakpoint(medium) {
+                  padding: 0 1.75rem 0 0.5rem;
+                }
+              }
+
+              &-symbol {
+                font-size: 2 * $global-font-size;
+                padding: 0 0 0 1rem;
+
+                @include breakpoint(medium) {
+                  padding-left: 1.75rem;
+                }
+              }
+            }
+          }
+        }
+        p {
+          font-size: 1.2 * $global-font-size;
+          line-height: 2;
+        }
+      }
+
+      &-image {
+        img {
+          margin-bottom: 2.5rem;
+          max-width: 20rem;
+          width: 65%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,236 @@
+.flexible {
+  padding-bottom: 3 * $global-padding;
+  padding-top: 3 * $global-padding;
+
+  &--events {
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+
+    &--after {
+      .flexible--events--container {
+        background: $white;
+        border: 1px solid $light-lighter-gray;
+        border-radius: 1rem;
+        z-index: 100;
+      }
+    }
+
+    &--container {
+      @include xy-grid;
+      @extend .align-center;
+      padding-bottom: 2.5rem;
+      padding-top: 2.5rem;
+    }
+
+    &--footer {
+      @include xy-cell;
+      @extend .align-center;
+      @extend .text-center;
+      padding-top: 5 * $global-padding;
+
+      .button {
+        @extend .header;
+        @extend .text-orange;
+        @extend .text-uppercase;
+        background: transparent;
+        padding: 0;
+
+        &:hover {
+          color: $orange-medium;
+        }
+      }
+    }
+
+    &--single {
+      @include xy-cell(10);
+      border-bottom: 1px solid $aqua;
+      color: $dark-gray;
+      padding: 2.5rem 1rem;
+      position: relative;
+      text-align: center;
+
+      @include breakpoint(medium) {
+        @include xy-cell(5);
+        border-bottom: 0;
+
+        &:after {
+          border-right: 1px solid $aqua;
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          right: -0.5 * map-get($grid-margin-gutters, medium);
+          top: 0;
+        }
+
+        &:last-child {
+          &:after {
+            border-right: 0;
+          }
+        }
+      }
+
+      @include breakpoint(medium only) {
+        &:nth-child(2n) {
+          &:after {
+            border-right: 0;
+          }
+        }
+      }
+
+      @include breakpoint(large) {
+        @include xy-cell(4);
+      }
+
+      h4 {
+        @extend .subheader;
+        color: $primary-color;
+        font-weight: $global-weight-bold;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+
+        @include breakpoint(large) {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      &--date {
+        color: $aqua-medium !important;
+        font-size: 1.75 * $global-font-size !important;
+      }
+
+      &--title {
+        @extend .header-small;
+        font-weight: $global-weight-bold;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+
+        @include breakpoint(large) {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    &--title {
+      @include xy-grid;
+      @include xy-cell;
+      @extend .align-stretch;
+      @extend .header;
+      margin-bottom: 5 * $global-padding;
+
+      span {
+        @include xy-cell;
+        color: $primary-color;
+        min-height: rem-calc(30);
+        text-align: center;
+
+        @include breakpoint(large) {
+          @include xy-cell(6);
+        }
+
+        &.spacer {
+          background: url('../images/teal-bg_light-top.png') no-repeat center center;
+          background-size: contain;
+
+          &:last-of-type {
+            background-image: url('../images/teal-bg_light-bottom.png');
+          }
+
+          @include breakpoint(large) {
+            @include xy-cell(3);
+            background-image: url('../images/teal-bg_top.png');
+
+            &:last-of-type {
+              background-image: url('../images/teal-bg_bottom.png');
+            }
+          }
+        }
+      }
+    }
+
+    &--wrapper {
+      @include xy-grid;
+      @include xy-cell;
+      @extend .align-center;
+    }
+  }
+  &--films {
+    @include xy-grid;
+    @extend .align-center;
+    background: $aqua;
+
+    h2 {
+      @include xy-cell(10);
+      @extend .header-white;
+    }
+    h3 {
+      @include xy-cell(10);
+      @extend .subheader-white;
+    }
+
+    &--container {
+      @include xy-cell(12);
+      @include xy-grid;
+      @extend .align-center;
+    }
+
+    &--single {
+      @include xy-cell(11);
+      padding: 2rem 0;
+
+      @include breakpoint(medium) {
+        @include xy-cell(5);
+      }
+
+      @include breakpoint(xlarge) {
+        @include xy-cell(4);
+      }
+
+      a {
+        color: $primary-color;
+        display: flex;
+        height: 12rem;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        width: 12rem;
+        z-index: 1;
+
+        &:after {
+          background: $white;
+          border-radius: 50%;
+          content: '';
+          height: 12rem;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 12rem;
+          z-index: -1;
+        }
+
+        &:before {
+          border: 3px solid $primary-color;
+          border-radius: 50%;
+          content: '';
+          height: 12rem;
+          left: 1.25rem;
+          position: absolute;
+          top: 0.5rem;
+          width: 12rem;
+          z-index: -1;
+        }
+
+        span {
+          @extend .align-middle;
+          display: flex;
+          font-size: 1.65 * $global-font-size;
+          font-weight: $global-weight-medium;
+          height: 8rem;
+          line-height: 1.1;
+          text-align: center;
+          width: 8rem;
+        }
+      }
+    }
+  }
+}

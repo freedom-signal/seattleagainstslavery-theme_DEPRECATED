@@ -1,0 +1,108 @@
+.flexible {
+  &--staff {
+    @include xy-grid;
+    @extend .align-center;
+
+    &--container {
+      @include xy-grid;
+      @include xy-cell(12);
+      @extend .align-center;
+    }
+
+    &--single {
+      @include xy-cell(12);
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+
+      @include breakpoint(medium) {
+        @include xy-cell(5);
+      }
+
+      @include breakpoint(xlarge) {
+        @include xy-cell(3);
+      }
+
+      > a {
+        &:hover {
+          .flexible--staff--single-image {
+            background-color: $aqua-medium;
+            background-image: none !important;
+
+            &--hover {
+              display: block;
+            }
+          }
+        }
+      }
+
+      &-content {
+        @include xy-cell(12);
+
+        h2 {
+          line-height: 1.1;
+          margin-bottom: 0.25rem;
+        }
+      }
+      &-image {
+        @include xy-cell(12);
+        background: transparent no-repeat center center;
+        background-size: cover;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        position: relative;
+
+        &:after {
+          content: '';
+          display: block;
+          padding-bottom: 100%;
+        }
+
+        &--hover {
+          @extend .text-uppercase;
+          color: $primary-color;
+          display: none;
+          font-weight: $global-weight-bold;
+          height: auto;
+          left: 50%;
+          line-height: 1.2;
+          max-width: 60%;
+          position: absolute;
+          text-align: center;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          &:before {
+            background: url('../images/email.png') no-repeat center center;
+            background-size: contain;
+            content: '';
+            display: inline-block;
+            padding-bottom: 40px;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    h1 {
+      @include xy-cell(12);
+      @extend .header;
+      @extend .text-center;
+      @extend .text-uppercase;
+      color: $primary-color;
+      font-weight: $global-weight-bold;
+    }
+    h2 {
+      @include xy-cell(12);
+      @extend .subheader;
+      @extend .text-center;
+      @extend .text-uppercase;
+      color: $primary-color;
+      font-weight: $global-weight-bold;
+    }
+    h3 {
+      @extend .subheader;
+      @extend .text-center;
+      color: $primary-color;
+      font-size: 1rem;
+    }
+  }
+}
