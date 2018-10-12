@@ -27,7 +27,7 @@ if ( $books['category'] ):
 						<?php endif; ?>
 						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<div class="flexible--books--single">
-								<a href="<?= get_field('url'); ?>" target="<?php if ( get_field( 'target_blank' ) ) {
+								<a href="<?= get_field('link'); ?>" target="<?php if ( get_field( 'target_blank' ) ) {
 									echo '_blank';
 								} ?>">
 									<span>
