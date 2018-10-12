@@ -190,7 +190,7 @@ $code-padding: rem-calc(2 5 1);
 $anchor-color: $secondary-color;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
-$anchor-text-decoration-hover: underline;
+$anchor-text-decoration-hover: none;
 $hr-width: $global-width;
 $hr-border: 1px solid $light-lighter-gray;
 $hr-margin: rem-calc(40) auto;
