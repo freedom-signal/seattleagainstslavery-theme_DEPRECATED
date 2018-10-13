@@ -1,0 +1,31 @@
+.flexible {
+   &--cta {
+    background: $green url('../images/green-bg_arrow.png') no-repeat center center;
+    background-size: cover;
+
+    h2 {
+      @extend .header-white;
+      margin-bottom: 2rem;
+    }
+
+    .button {
+      background: $white;
+      color: $primary-color;
+
+      &:hover {
+        background: darken($white, 5%);
+        color: darken($primary-color, 5%);
+      }
+    }
+
+    .main-grid {
+      @include xy-grid;
+      @extend .align-center;
+      @extend .text-center;
+    }
+
+    &--container {
+      @include xy-cell(10);
+    }
+  }
+}

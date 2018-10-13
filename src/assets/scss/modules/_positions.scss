@@ -1,7 +1,4 @@
 .flexible {
-  padding-bottom: 3 * $global-padding;
-  padding-top: 3 * $global-padding;
-  
   &--positions {
     .main-grid {
       @include xy-grid;
@@ -9,7 +6,6 @@
     }
 
     &--accordion {
-      @include xy-cell(11);
       @extend .accordion;
     }
 

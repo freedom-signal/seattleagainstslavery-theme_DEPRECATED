@@ -84,8 +84,10 @@
       }
     }
   }
+
   &--content {
     @include xy-grid;
+    @include xy-cell(12);
     @extend .align-center;
 
     h2 {
@@ -93,222 +95,17 @@
       @extend .header;
       color: $primary-color;
     }
+
     h3 {
       @include xy-cell(12);
       @extend .subheader;
       color: $primary-color;
     }
-  }
-  &--cta {
-    background: $green url('../images/green-bg_arrow.png') no-repeat center center;
-    background-size: cover;
 
-    h2 {
-      @extend .header-white;
-      margin-bottom: 2rem;
-    }
-
-    .button {
-      background: $white;
-      color: $primary-color;
-
-      &:hover {
-        background: darken($white, 5%);
-        color: darken($primary-color, 5%);
-      }
-    }
-
-    .main-grid {
-      @include xy-grid;
-      @extend .align-center;
-      @extend .text-center;
-    }
-
-    &--container {
-      @include xy-cell(10);
-    }
-  }
-
-  &--directors {
-    @include xy-grid;
-    @extend .align-center;
-    background: $light-gray;
-
-    &--container {
-      @include xy-grid;
-      @include xy-cell(12);
-
-      @include breakpoint(small only) {
-        justify-content: center;
-      }
-    }
-    &--single {
-      @include xy-cell(9);
-      padding-bottom: 1rem;
-      padding-top: 1rem;
-
-      @include breakpoint(large) {
-        @include xy-cell(6);
-      }
-
-      > .flexible--directors--single-container {
-        @include xy-grid;
-        @extend .align-middle;
-      }
-
-      > a {
-        @include xy-grid;
-        @extend .align-middle;
-
-        &:hover {
-          .flexible--directors--single-image {
-            background-color: $aqua-medium;
-            background-image: none !important;
-
-            &--hover {
-              display: block;
-            }
-          }
-        }
-      }
-
-      &-content {
-        @include xy-cell(12);
-
-        @include breakpoint(medium) {
-          @include xy-cell(6);
-        }
-
-        @include breakpoint(large) {
-          @include xy-cell(8);
-        }
-
-        h2 {
-          line-height: 1.1;
-          margin-bottom: 0.25rem;
-          text-align: left;
-
-          @include breakpoint(small only) {
-            text-align: center;
-          }
-
-          @include breakpoint(medium) {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-          }
-        }
-
-        h3 {
-          text-align: left;
-
-          @include breakpoint(small only) {
-            text-align: center;
-          }
-        }
-      }
-      &-image {
-        @include xy-cell(12);
-        background: transparent no-repeat center center;
-        background-size: cover;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-        position: relative;
-
-        @include breakpoint(medium) {
-          @include xy-cell(6);
-        }
-
-        @include breakpoint(large) {
-          @include xy-cell(4);
-        }
-
-        &:after {
-          content: '';
-          display: block;
-          padding-bottom: 100%;
-        }
-
-        &--hover {
-          @extend .text-uppercase;
-          color: $primary-color;
-          display: none;
-          font-size: 0.75 * $global-font-size;
-          font-weight: $global-weight-bold;
-          height: auto;
-          left: 50%;
-          line-height: 1.2;
-          max-width: 60%;
-          position: absolute;
-          text-align: center;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          &:before {
-            background: url('../images/email.png') no-repeat center center;
-            background-size: contain;
-            content: '';
-            display: inline-block;
-            padding-bottom: 30px;
-            width: 100%;
-          }
-        }
-      }
-    }
-
-    h2 {
-      @include xy-cell(12);
-      @extend .subheader;
-      @extend .text-center;
-      @extend .text-uppercase;
-      color: $primary-color;
-      font-weight: $global-weight-bold;
-    }
-    h3 {
-      @extend .subheader;
-      @extend .text-center;
-      color: $primary-color;
-      font-size: 1rem;
-    }
-  }
-  
-  &--not-found {
-    @include xy-grid;
-    @extend .align-center;
-
-    h2 {
-      @include xy-cell(10);
-      @extend .header;
-      color: $primary-color;
-    }
-
-    ul {
-      @include xy-cell(10);
-      list-style: none;
-    }
-
-    li {
-      @extend .subheader;
-      color: $primary-color;
-      margin: 0;
-      padding: 1rem;
-      position: relative;
-
-      &:after {
-        border-bottom: 1px solid $light-lighter-gray;
-        bottom: 0;
-        content: '';
-        display: block;
-        left: 50%;
-        position: absolute;
-        transform: translate(-50%, 0);
-        width: 5rem;
-      }
-    }
-
-    &--container {
-      @include xy-cell(12);
-      @include xy-grid;
-      @extend .align-center;
-      @extend .align-stretch;
+    @include breakpoint(medium) {
+      @include xy-cell(8);
+      margin: auto;
+      max-width: 850px;
     }
   }
 }
