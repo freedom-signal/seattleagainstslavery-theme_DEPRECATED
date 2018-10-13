@@ -1,7 +1,4 @@
 .flexible {
-  padding-bottom: 3 * $global-padding;
-  padding-top: 3 * $global-padding;
-
   &--books {
     @include xy-grid;
     @extend .align-center;
@@ -165,13 +162,35 @@
     }
     &:after {
       background-image: url('../images/red-bg_down.png');
-      left: 1.5rem;
-      top: 1.5rem;
+      left: 0;
+      top: 0;
     }
     &:before {
       background-image: url('../images/red-bg_up.png');
-      bottom: 1.5rem;
-      right: 1.5rem;
+      bottom: 0;
+      right: 0;
+    }
+
+    @include breakpoint(medium) {
+      &:after {
+        left: 1rem;
+        top: 1rem;
+      }
+      &:before {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+
+    @include breakpoint(large) {
+      &:after {
+        left: 1.5rem;
+        top: 1.5rem;
+      }
+      &:before {
+        bottom: 1.5rem;
+        right: 1.5rem;
+      }
     }
 
     h2 {
@@ -223,7 +242,8 @@
     }
 
     &--single {
-      @include xy-cell(11);
+     width: 100%;
+
       a {
         background: $white;
         color: $aqua;
@@ -231,7 +251,7 @@
         font-size: 1.5 * $global-font-size;
         font-weight: $global-weight-bold;
         margin-bottom: 1rem;
-        padding: 1rem 0;
+        padding: 1rem;
         text-align: center;
         width: 100%;
       }

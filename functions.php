@@ -56,3 +56,17 @@ require_once( 'library/theme-options.php' );
 
 /** Custom post types */
 require_once( 'library/custom-post-type.php' );
+
+/** Don't allow automatic ping backs */
+function remove_x_pingback($headers) {
+  unset($headers['X-Pingback']);
+  return $headers;
+}
+add_filter('wp_headers', 'remove_x_pingback');
+
+// Remove the links to xmlrpc.php and wlwmanifest.xml
+function removeHeadLinks() {
+	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wlwmanifest_link');
+}
+add_action('init', 'removeHeadLinks');
