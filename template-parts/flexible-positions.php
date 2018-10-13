@@ -16,6 +16,7 @@ if ( $the_query->have_posts() ): ?>
 								<div class="flexible--positions--single-content" data-tab-content>
 									<h3><?= __( 'Responsibilities:', 'foundationpress' ); ?></h3>
 									<?= get_field( 'responsibilities' ); ?>
+									
 									<h3><?= __( 'Desired Skills:', 'foundationpress' ); ?></h3>
 									<?= get_field( 'skills' ); ?>
 									<a
