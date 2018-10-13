@@ -29,7 +29,7 @@ if ( $columns['columns'] ): ?>
 						<h3><?= $columns['section_footer']; ?></h3>
 					<?php endif; ?>
 					<?php if ( $columns['section_footer_link'] ): ?>
-						<a class="button button-round button-large green" href="<?= $columns['section_footer_link']['url']; ?>">
+						<a class="button button-round button-large green" target="_blank" href="<?= $columns['section_footer_link']['url']; ?>">
 							<?= $columns['section_footer_link']['button_text']; ?>
 						</a>
 					<?php endif; ?>
