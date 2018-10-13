@@ -1,18 +1,17 @@
 'use strict';
 
-import plugins       from 'gulp-load-plugins';
-import yargs         from 'yargs';
-import browser       from 'browser-sync';
-import gulp          from 'gulp';
-import rimraf        from 'rimraf';
-import yaml          from 'js-yaml';
-import fs            from 'fs';
-import dateFormat    from 'dateformat';
+import plugins from 'gulp-load-plugins';
+import yargs from 'yargs';
+import gulp from 'gulp';
+import rimraf from 'rimraf';
+import yaml from 'js-yaml';
+import fs from 'fs';
+import dateFormat from 'dateformat';
 import webpackStream from 'webpack-stream';
-import webpack2      from 'webpack';
-import named         from 'vinyl-named';
-import log           from 'fancy-log';
-import colors        from 'ansi-colors';
+import webpack2 from 'webpack';
+import named from 'vinyl-named';
+import log from 'fancy-log';
+import colors from 'ansi-colors';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -24,14 +23,14 @@ const PRODUCTION = !!(yargs.argv.production);
 const DEV = !!(yargs.argv.dev);
 
 // Load settings from settings.yml
-const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
+const { COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {
   let flag = true;
   try {
     fs.accessSync(filepath, fs.F_OK);
-  } catch(e) {
+  } catch (e) {
     flag = false;
   }
   return flag;
@@ -47,7 +46,7 @@ function loadConfig() {
     let ymlFile = fs.readFileSync('config.yml', 'utf8');
     return yaml.load(ymlFile);
 
-  } else if(checkFileExists('config-default.yml')) {
+  } else if (checkFileExists('config-default.yml')) {
     // config-default.yml exists, load it
     log(colors.bold(colors.cyan('config.yml')), 'does not exist, loading', colors.bold(colors.cyan('config-default.yml')));
     let ymlFile = fs.readFileSync('config-default.yml', 'utf8');
@@ -93,7 +92,6 @@ function sass() {
     .pipe(gulp.dest(PATHS.dist + '/assets/css'))
     .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
     .pipe(gulp.dest(PATHS.dist + '/assets/css'))
-    .pipe(browser.reload({ stream: true }));
 }
 
 // Combine JavaScript into one file
@@ -118,8 +116,6 @@ const webpack = {
     log('[webpack]', stats.toString({
       colors: true,
     }));
-    
-    browser.reload();
   },
 
   build() {
@@ -179,7 +175,7 @@ function archive() {
 }
 
 // PHP Code Sniffer task
-gulp.task('phpcs', function() {
+gulp.task('phpcs', function () {
   return gulp.src(PATHS.phpcs)
     .pipe($.phpcs({
       bin: 'wpcs/vendor/bin/phpcs',
@@ -192,33 +188,14 @@ gulp.task('phpcs', function() {
 // PHP Code Beautifier task
 gulp.task('phpcbf', function () {
   return gulp.src(PATHS.phpcs)
-  .pipe($.phpcbf({
-    bin: 'wpcs/vendor/bin/phpcbf',
-    standard: './codesniffer.ruleset.xml',
-    warningSeverity: 0
-  }))
-  .on('error', $.util.log)
-  .pipe(gulp.dest('.'));
+    .pipe($.phpcbf({
+      bin: 'wpcs/vendor/bin/phpcbf',
+      standard: './codesniffer.ruleset.xml',
+      warningSeverity: 0
+    }))
+    .on('error', $.util.log)
+    .pipe(gulp.dest('.'));
 });
-
-// Start BrowserSync to preview the site in
-function server(done) {
-  browser.init({
-    proxy: BROWSERSYNC.url,
-
-    ui: {
-      port: 8080
-    },
-
-  });
-  done();
-}
-
-// Reload the browser with BrowserSync
-function reload(done) {
-  browser.reload();
-  done();
-}
 
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
@@ -226,10 +203,10 @@ function watch() {
   gulp.watch('src/assets/scss/**/*.scss', sass)
     .on('change', path => log('File ' + colors.bold(colors.magenta(path)) + ' changed.'))
     .on('unlink', path => log('File ' + colors.bold(colors.magenta(path)) + ' was removed.'));
-  gulp.watch('**/*.php', reload)
+  gulp.watch('**/*.php')
     .on('change', path => log('File ' + colors.bold(colors.magenta(path)) + ' changed.'))
     .on('unlink', path => log('File ' + colors.bold(colors.magenta(path)) + ' was removed.'));
-  gulp.watch('src/assets/images/**/*', gulp.series(images, browser.reload));
+  gulp.watch('src/assets/images/**/*', images);
 }
 
 // Build the "dist" folder by running all of the below tasks
@@ -238,7 +215,7 @@ gulp.task('build',
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series('build', server, gulp.parallel('webpack:watch', watch)));
+  gulp.series('build', gulp.parallel('webpack:watch', watch)));
 
 // Package task
 gulp.task('package',
