@@ -25,15 +25,10 @@
 
     &--footer {
       @include xy-grid;
-
-      h3 {
-        @include xy-cell;
-        color: $white;
-        font-weight: $global-weight-light;
-        margin-bottom: 0;
-        margin-top: 1.5 * $global-padding;
-        text-align: center;
-      }
+      font-weight: $global-weight-light;
+      margin-bottom: 0;
+      margin-top: 1.5 * $global-padding;
+      text-align: center;
     }
 
     &--single {

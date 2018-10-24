@@ -52,7 +52,9 @@ if ( $donate['columns'] ): ?>
 				</div>
 				<?php if ( $donate['section_footer'] ): ?>
 					<div class="flexible--donate--footer">
-						<h3><?= $donate['section_footer']; ?></h3>
+						<?php if(get_theme_mod('sas_tax-info')): ?>
+								<?= get_theme_mod('sas_tax-info'); ?>
+						<?php endif; ?>
 					</div>
 				<?php endif; ?>
 			</div>
