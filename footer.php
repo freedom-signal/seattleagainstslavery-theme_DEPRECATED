@@ -54,6 +54,11 @@
 							</li>
 						<?php endif; ?>
 					</ul>
+					<?php if(get_theme_mod('sas_tax-info')): ?>
+						<div class="footer-org-info">
+							<?= get_theme_mod('sas_tax-info'); ?>
+						</div>
+					<?php endif; ?>
 				</section>
 			</div>
 		</div>

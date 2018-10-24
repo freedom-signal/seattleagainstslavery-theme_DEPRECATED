@@ -91,6 +91,11 @@
     }
   }
 
+  &-org-info {
+    margin-top: 2em;
+    font-style: italic;
+  }
+
   &-widget {
     a {
       @extend .h1;

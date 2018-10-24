@@ -57,6 +57,12 @@ function customize_register( $wp_customize ) {
 		'section' => 'contact_social',
 		'type'    => 'textarea'
 	) );
+	$wp_customize->add_setting( 'sas_tax-info' );
+	$wp_customize->add_control( 'sas_tax-info', array(
+		'label'   => __( 'SAS Tax Info Statement', 'foundationpress' ),
+		'section' => 'contact_social',
+		'type'    => 'textarea'
+	) );
 	$wp_customize->add_setting( 'sas_facebook' );
 	$wp_customize->add_control( 'sas_facebook', array(
 		'label'   => __( 'Facebook URL', 'foundationpress' ),
