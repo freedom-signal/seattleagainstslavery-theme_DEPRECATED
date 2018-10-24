@@ -7,7 +7,8 @@ var slickOptions = {
   arrows: false,
   dots: true,
   mobileFirst: true,
-  autoplay: true
+  autoplay: true,
+  autoplaySpeed: 6000
 };
 
 $(document).foundation();
