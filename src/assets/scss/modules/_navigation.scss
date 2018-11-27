@@ -35,7 +35,6 @@
       }
     }
   }
-
 }
 
 .post-navigation {
@@ -89,8 +88,8 @@
 
 .site-navigation {
   @extend .main-container;
-  max-width: 100vw;
-  
+  max-width: 98wv;
+
   .top-bar-left,
   .desktop-menu {
     @include show-for(large);
@@ -166,7 +165,7 @@
   .menu {
     > li:not(.menu-text) {
       > a {
-        padding: .75rem;
+        padding: 0.75rem;
 
         @include breakpoint(xlarge) {
           padding: 1rem;
@@ -183,9 +182,21 @@
         border: 0;
       }
     }
+
     .submenu {
       border: 0;
+      min-width: 300px;
+      top: 70% !important;
+      box-shadow: rgba(108, 117, 125, 0.73) 1px 3px 5px -3px,
+        rgba(108, 117, 125, 0.73) 3px 3px 5px -2px,
+        rgba(108, 117, 125, 0.73) -3px 3px 5px -3px;
+  
+      a {
+        font-size: 1rem;
+      }
     }
+
+
     &:first-child {
       > li.is-dropdown-submenu-parent {
         > a {
@@ -195,14 +206,6 @@
         }
       }
     }
-  }
-
-  ul.is-dropdown-submenu {
-    min-width: 250px;
-    top: 70%;
-    box-shadow: rgba(108, 117, 125, 0.73) 1px 3px 5px -3px,
-      rgba(108, 117, 125, 0.73) 3px 3px 5px -2px,
-      rgba(108, 117, 125, 0.73) -3px 3px 5px -3px;
   }
 }
 
@@ -215,13 +218,15 @@
 
     &:after {
       background: $secondary-color;
-      box-shadow: 0 7px 0 $secondary-color, 0 14px 0 $secondary-color, 0 21px 0 $secondary-color;
+      box-shadow: 0 7px 0 $secondary-color, 0 14px 0 $secondary-color,
+        0 21px 0 $secondary-color;
     }
 
     &:hover {
       &:after {
         background: $primary-color;
-        box-shadow: 0 7px 0 $primary-color, 0 14px 0 $primary-color, 0 21px 0 $primary-color;
+        box-shadow: 0 7px 0 $primary-color, 0 14px 0 $primary-color,
+          0 21px 0 $primary-color;
       }
     }
   }
@@ -230,7 +235,7 @@
     a {
       font-size: 1rem;
       color: $medium-gray;
-      
+
       img {
         max-height: 100px;
       }
