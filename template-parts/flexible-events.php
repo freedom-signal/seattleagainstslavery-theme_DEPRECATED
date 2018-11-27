@@ -19,7 +19,7 @@ if ( $events ): ?>
 					<div class="flexible--events--wrapper">
 						<?php foreach ( $events as $event ): ?>
 							<div class="flexible--events--single">
-								<a href="<?= esc_url( tribe_get_events_link( $event->ID ) ); ?>">
+								<a href="<?= esc_url( tribe_get_event_link( $event->ID ) ); ?>">
 									<h3 class="flexible--events--single--title"><?= $event->post_title; ?></h3>
 									<h4 class="flexible--events--single--date">
 										<?= tribe_events_event_schedule_details( $event->ID ); ?>
