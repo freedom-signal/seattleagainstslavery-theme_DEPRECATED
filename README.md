@@ -25,10 +25,6 @@ $ npm install
 
 The project includes a `config.yml` file. This file contains the configuration settings for this project.
 
-#### Browsersync setup
-
-If you want to take advantage of [Browsersync](https://www.browsersync.io/) (automatic browser refresh when a file is saved), simply open your `config.yml` file after creating it in the previous step, and put your local dev-server address and port (e.g http://localhost:8888) in the `url` property under the `BROWSERSYNC` object.
-
 ### 3. Get started
 
 ```bash
