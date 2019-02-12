@@ -1,0 +1,116 @@
+.events--fwcat {
+  padding: 0 0 2.5rem;
+
+  .events-container {
+    @include xy-grid;
+    @extend .align-center;
+    background: $white;
+    border-radius: 1rem;
+    z-index: 100;
+    padding: 0 0.5em;
+
+    .title {
+      @include xy-grid;
+      @include xy-cell;
+      @extend .align-stretch;
+      @extend .header;
+      margin-bottom: 1 * $global-padding;
+
+      span {
+        @include xy-cell;
+        color: $primary-color;
+        min-height: rem-calc(30);
+        text-align: center;
+
+        @include breakpoint(large) {
+          @include xy-cell(6);
+        }
+
+        &.spacer {
+          background: url("../images/teal-bg_light-top.png") no-repeat center
+            center;
+          background-size: contain;
+
+          &:last-of-type {
+            background-image: url("../images/teal-bg_light-bottom.png");
+          }
+
+          @include breakpoint(large) {
+            @include xy-cell(3);
+            background-image: url("../images/teal-bg_top.png");
+
+            &:last-of-type {
+              background-image: url("../images/teal-bg_bottom.png");
+            }
+          }
+        }
+      }
+    }
+
+    .events-wrapper {
+      @extend .align-center;
+
+      .single-event {
+        color: $dark-gray;
+        padding: 0.5rem 0;
+        position: relative;
+
+        @include breakpoint(medium) {
+          &:after {
+            border-bottom: 1px solid $orange;
+            content: "";
+            display: block;
+            width: 65%;
+            margin: 1.75rem auto;
+          }
+
+          &:last-child:after {
+            border-bottom: 0;
+          }
+        }
+
+        @include breakpoint(medium only) {
+          &:nth-child(2n) {
+            &:after {
+              border-right: 0;
+            }
+          }
+        }
+
+        h4 {
+          color: $primary-color;
+          font-weight: $global-weight-bold;
+          line-height: 1.1;
+          margin-bottom: 0.25rem;
+
+          @include breakpoint(large) {
+            margin-bottom: 0.5rem;
+          }
+        }
+
+        .date {
+          color: $aqua-medium !important;
+        }
+      }
+    }
+  }
+
+  .events-footer {
+    @include xy-cell;
+    @extend .align-center;
+    @extend .text-center;
+    padding-top: 1 * $global-padding;
+
+    .button {
+      @extend .header;
+      @extend .text-orange;
+      @extend .text-uppercase;
+      background: transparent;
+      padding: 0;
+
+      &:hover {
+        color: $orange-medium;
+      }
+    }
+  }
+}
