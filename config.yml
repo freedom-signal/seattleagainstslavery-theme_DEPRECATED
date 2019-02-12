@@ -30,7 +30,6 @@ PATHS:
     - "!**/node_modules/**"
     - "!**/packaged/**"
     - "!**/src/**"
-    - "!**/codesniffer.ruleset.xml"
     - "!**/composer.json"
     - "!**/composer.lock"
     - "!**/config.yml"
@@ -39,10 +38,5 @@ PATHS:
     - "!**/package.json"
     - "!**/package-lock.json"
     - "!**/webpack.config.js"
-  # Paths for PHP CodeSniffer
-  phpcs:
-    - "**/*.php"
-    - "!wpcs"
-    - "!wpcs/**"
 BROWSERSYNC:
   url: "http://localhost"

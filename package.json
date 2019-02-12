@@ -10,9 +10,7 @@
     "start": "gulp",
     "dev": "gulp build --dev",
     "build": "gulp build --production",
-    "package": "gulp package --production",
-    "phpcs": "gulp phpcs",
-    "phpcbf": "gulp phpcbf"
+    "package": "gulp package --production"
   },
   "keywords": [],
   "dependencies": {
@@ -38,8 +36,6 @@
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-load-plugins": "^1.1.0",
-    "gulp-phpcbf": "^0.1.2",
-    "gulp-phpcs": "^2.1.0",
     "gulp-rev": "^8.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^1.6.0",

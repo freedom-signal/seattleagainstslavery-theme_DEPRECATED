@@ -200,35 +200,6 @@ function archive() {
     .pipe(gulp.dest("packaged"));
 }
 
-// PHP Code Sniffer task
-gulp.task("phpcs", function() {
-  return gulp
-    .src(PATHS.phpcs)
-    .pipe(
-      $.phpcs({
-        bin: "wpcs/vendor/bin/phpcs",
-        standard: "./codesniffer.ruleset.xml",
-        showSniffCode: true
-      })
-    )
-    .pipe($.phpcs.reporter("log"));
-});
-
-// PHP Code Beautifier task
-gulp.task("phpcbf", function() {
-  return gulp
-    .src(PATHS.phpcs)
-    .pipe(
-      $.phpcbf({
-        bin: "wpcs/vendor/bin/phpcbf",
-        standard: "./codesniffer.ruleset.xml",
-        warningSeverity: 0
-      })
-    )
-    .on("error", $.util.log)
-    .pipe(gulp.dest("."));
-});
-
 // Watch for changes to static assets, pages, Sass, and JavaScript
 function watch() {
   gulp.watch(PATHS.assets, copy);
