@@ -23,9 +23,7 @@ $ npm install
 
 #### YAML config file
 
-The project includes a `config-default.yml` file. To make changes to the configuration, make a copy of `config-default.yml` and name it `config.yml` and make changes to that file. The `config.yml` file is ignored by git so that each environment can use a different configuration with the same git repo.
-
-At the start of the build process a check is done to see if a `config.yml` file exists. If `config.yml` exists, the configuration will be loaded from `config.yml`. If `config.yml` does not exist, `config-default.yml` will be used as a fallback.
+The project includes a `config.yml` file. This file contains the configuration settings for this project.
 
 #### Browsersync setup
 
@@ -55,33 +53,20 @@ Running this command will build and minify the theme's assets and place a .zip a
 
 ### Project structure
 
-In the `/src` folder you will the working files for all our assets. Every time you make a change to a file that is watched by Gulp, the output will be saved to the `/dist` folder. The contents of this folder are the compiled code that you should not touch (unless you have a good reason for it).
-
-The `/page-templates` folder contains templates that can be selected in the Pages section of the WordPress admin panel. To create a new page-template, simply create a new file in this folder and make sure to give it a template name.
+In the `/src` folder you will the working files for all our assets. The `/page-templates` folder contains templates that can be selected in the Pages section of the WordPress admin panel. To create a new page-template, simply create a new file in this folder and make sure to give it a template name.
 
 ### Styles and Sass Compilation
 
-- `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
-- `src/assets/scss/app.scss`: Make imports for all your styles here
+- `src/assets/scss/app.scss`: Add imports for new scss files here
 - `src/assets/scss/global/*.scss`: Global settings
-- `src/assets/scss/components/*.scss`: Buttons etc.
-- `src/assets/scss/modules/*.scss`: Topbar, footer etc.
-- `dist/assets/css/app.css`: This file is loaded in the `<head>` section of your document, and contains the compiled styles for your project.
+- `src/assets/scss/components/*.scss`: Buttons, forms, etc.
+- `src/assets/scss/modules/*.scss`: Topbar, footer, etc.
 
 ### JavaScript Compilation
 
 All JavaScript files, including Foundation's modules, are imported through the `src/assets/js/app.js` file. The files are imported using module dependency with [webpack](https://webpack.js.org/) as the module bundler.
 
-If you're unfamiliar with modules and module bundling, check out [this resource for node style require/exports](http://openmymind.net/2012/2/3/Node-Require-and-Exports/) and [this resource to understand ES6 modules](http://exploringjs.com/es6/ch_modules.html).
-
 If you need to output additional JavaScript files separate from `app.js`, do the following:
 
 - Create new `custom.js` file in `src/assets/js/`. If you will be using jQuery, add `import $ from 'jquery';` at the top of the file.
 - In `config.yml`, add `src/assets/js/custom.js` to `PATHS.entries`.
-- Build (`npm start`)
-- You will now have a `custom.js` file outputted to the `dist/assets/js/` directory.
-
-## Documentation
-
-- [Zurb Foundation Docs](http://foundation.zurb.com/docs/)
-- [WordPress Codex](http://codex.wordpress.org/)

@@ -44,3 +44,5 @@ PATHS:
     - "**/*.php"
     - "!wpcs"
     - "!wpcs/**"
+BROWSERSYNC:
+  url: "http://localhost"
