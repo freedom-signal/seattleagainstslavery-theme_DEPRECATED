@@ -70,15 +70,3 @@ function removeHeadLinks() {
 	remove_action('wp_head', 'wlwmanifest_link');
 }
 add_action('init', 'removeHeadLinks');
-
-// Change the description sent to stripe when a One Time Donation is made.
-add_filter( 'gform_stripe_charge_description', 'change_stripe_description', 10, 5);
-function change_stripe_description( $description, $strings, $entry, $submission_data, $feed ) {
-  if (strlen($entry['6.1']) && strlen($entry['6.2'])) {
-    return "SAS & FWCAT - One Time Donation";
-   } elseif (!strlen($entry['6.1']) && strlen($entry['6.2'])) {
-    return "FWCAT - One Time Donation";
-  } else {
-    return "One Time Donation";
-  }
-}
