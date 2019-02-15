@@ -3,11 +3,7 @@
 
   .events-container {
     @include xy-grid;
-    @extend .align-center;
-    background: $white;
-    border-radius: 1rem;
-    z-index: 100;
-    padding: 0 0.5em;
+    padding: 0 0.625rem 0.5rem;
 
     .title {
       @include xy-grid;
@@ -27,68 +23,58 @@
         }
 
         &.spacer {
-          background: url("../images/teal-bg_light-top.png") no-repeat center
-            center;
+          background: url("../images/orange-right-facing-arrows.svg") no-repeat
+            center center;
           background-size: contain;
+          margin-bottom: 0.5rem;
 
           &:last-of-type {
-            background-image: url("../images/teal-bg_light-bottom.png");
+            background-image: url("../images/orange-left-facing-arrows.svg");
           }
 
           @include breakpoint(large) {
             @include xy-cell(3);
-            background-image: url("../images/teal-bg_top.png");
+            background-image: url("../images/orange-right-facing-arrows.svg");
 
             &:last-of-type {
-              background-image: url("../images/teal-bg_bottom.png");
+              background-image: url("../images/orange-left-facing-arrows.svg");
             }
           }
         }
       }
     }
+    .single-event {
+      padding: 0 0 0.25rem;
+      width: 100%;
 
-    .events-wrapper {
-      @extend .align-center;
+      &:after {
+        border-bottom: 1px dotted $orange;
+        content: "";
+        display: block;
+        width: 50%;
+        margin: 1.25rem 0;
+      }
 
-      .single-event {
-        color: $dark-gray;
-        padding: 0.5rem 0;
-        position: relative;
+      &:nth-of-type(3) {
+        &:after {
+          border-bottom: 0;
+        }
+      }
 
-        @include breakpoint(medium) {
-          &:after {
-            border-bottom: 1px solid $orange;
-            content: "";
-            display: block;
-            width: 65%;
-            margin: 1.75rem auto;
-          }
+      h5 {
+        font-weight: $global-weight-bold;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
 
-          &:last-child:after {
-            border-bottom: 0;
-          }
+        @include breakpoint(large) {
+          margin-bottom: 0.5rem;
         }
 
-        @include breakpoint(medium only) {
-          &:nth-child(2n) {
-            &:after {
-              border-right: 0;
-            }
-          }
+        &.venue {
+          font-weight: 400 !important;
         }
 
-        h4 {
-          color: $primary-color;
-          font-weight: $global-weight-bold;
-          line-height: 1.1;
-          margin-bottom: 0.25rem;
-
-          @include breakpoint(large) {
-            margin-bottom: 0.5rem;
-          }
-        }
-
-        .date {
+        &.date {
           color: $aqua-medium !important;
         }
       }
@@ -96,17 +82,11 @@
   }
 
   .events-footer {
-    @include xy-cell;
-    @extend .align-center;
-    @extend .text-center;
-    padding-top: 1 * $global-padding;
-
     .button {
-      @extend .header;
       @extend .text-orange;
-      @extend .text-uppercase;
       background: transparent;
       padding: 0;
+      font-size: 1.5em;
 
       &:hover {
         color: $orange-medium;
