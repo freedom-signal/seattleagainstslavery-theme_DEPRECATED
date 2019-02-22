@@ -25,32 +25,42 @@ if ( $staff['category'] ):
 			<div class="main-container">
 				<div class="main-grid">
 					<div class="flexible--staff--container">
+						
 						<?php if ( $staff['title'] ): ?>
 							<h1 class="flexible--staff--title"><?= $staff['title']; ?></h1>
 						<?php endif; ?>
+
 						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<div class="flexible--staff--single">
+								
 								<?php if ( get_field( 'email' ) ): ?>
-								<a href="mailto:<?php the_field( 'email' ); ?>">
-									<?php endif; ?>
-									<?php
+									<a href="mailto:<?php the_field( 'email' ); ?>">
+								<?php endif; ?>
+								
+								<?php
 									$thumbnail = get_stylesheet_directory_uri() . '/dist/assets/images/member.png';
 									if ( has_post_thumbnail() ):
 										$thumbnail = get_the_post_thumbnail_url();
-									endif; ?>
+								endif; ?>
+								
 									<div class="flexible--staff--single-image" style="background-image: url('<?= $thumbnail; ?>')">
 										<div class="flexible--staff--single-image--hover">
 											<?= __( 'Questions?', 'foundationpress' ); ?>
 											<?= __( 'Email Me!', 'foundationpress' ); ?>
 										</div>
 									</div>
+
 									<div class="flexible--staff--single-content">
 										<?php the_title( '<h2>', '</h2>' ); ?>
 										<h3><?php the_field( 'title' ); ?></h3>
+
+										<?php if ( get_field( 'email' ) ): ?>
+											<a class="flexible--staff--single-content--email" href="mailto:<?php the_field( 'email' ); ?>">
+												<?php the_field( 'email' ); ?>
+											</a>
+										<?php endif; ?>
 									</div>
-									<?php if ( get_field( 'email' ) ): ?>
 								</a>
-							<?php endif; ?>
 							</div>
 						<?php endwhile; ?>
 					</div>

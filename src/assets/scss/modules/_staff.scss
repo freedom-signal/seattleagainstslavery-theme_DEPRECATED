@@ -2,6 +2,7 @@
   &--staff {
     @include xy-grid;
     @extend .align-center;
+    padding-top: 0;
 
     &--container {
       @include xy-grid;
@@ -11,14 +12,14 @@
 
     &--single {
       @include xy-cell(12);
-      padding-bottom: 1rem;
+      padding-bottom: 1.5rem;
       padding-top: 1rem;
 
       @include breakpoint(medium) {
-        @include xy-cell(5);
+        @include xy-cell(6);
       }
 
-      @include breakpoint(xlarge) {
+      @include breakpoint(large) {
         @include xy-cell(3);
       }
 
@@ -43,16 +44,18 @@
           margin-bottom: 0.25rem;
         }
       }
+
       &-image {
         @include xy-cell(12);
         background: transparent no-repeat center center;
         background-size: cover;
         border-radius: 50%;
-        margin-bottom: 1rem;
+        margin: 0 auto 1rem;
         position: relative;
+        max-width: 250px;
 
         &:after {
-          content: '';
+          content: "";
           display: block;
           padding-bottom: 100%;
         }
@@ -71,9 +74,9 @@
           top: 50%;
           transform: translate(-50%, -50%);
           &:before {
-            background: url('../images/email.png') no-repeat center center;
+            background: url("../images/email.png") no-repeat center center;
             background-size: contain;
-            content: '';
+            content: "";
             display: inline-block;
             padding-bottom: 40px;
             width: 100%;
@@ -82,14 +85,25 @@
       }
     }
 
-    h1 {
+    &--title {
       @include xy-cell(12);
       @extend .header;
       @extend .text-center;
       @extend .text-uppercase;
       color: $primary-color;
       font-weight: $global-weight-bold;
+      margin-bottom: 1em;
+
+      &:after {
+        background: url("../images/downward-teal-arrows.svg") no-repeat center
+          center;
+        margin-bottom: 0.5rem;
+        content: "";
+        display: block;
+        height: 30px;
+      }
     }
+
     h2 {
       @include xy-cell(12);
       @extend .subheader;
@@ -98,11 +112,22 @@
       color: $primary-color;
       font-weight: $global-weight-bold;
     }
-    h3 {
-      @extend .subheader;
+
+    &--single-content {
       @extend .text-center;
-      color: $primary-color;
-      font-size: 1rem;
+
+      h3 {
+        @extend .subheader;
+        color: $primary-color;
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+      }
+
+      &--email {
+        @include breakpoint(medium) {
+          display: none;
+        }
+      }
     }
   }
 }
