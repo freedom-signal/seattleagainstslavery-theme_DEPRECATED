@@ -74,7 +74,7 @@
           top: 50%;
           transform: translate(-50%, -50%);
           &:before {
-            background: url("../images/email.png") no-repeat center center;
+            background: url("../images/email.svg") no-repeat center center;
             background-size: contain;
             content: "";
             display: inline-block;
@@ -97,6 +97,7 @@
       &:after {
         background: url("../images/downward-teal-arrows.svg") no-repeat center
           center;
+        background-size: contain;
         margin-bottom: 0.5rem;
         content: "";
         display: block;

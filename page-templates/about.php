@@ -5,6 +5,7 @@ Template Name: About
 get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image', 'about' ); ?>
+
 <?php if ( get_field( 'mission_section', $post->ID ) ): ?>
 	<section class="flexible flexible--content">
 		<div class="main-container">
@@ -16,6 +17,8 @@ get_header(); ?>
 		</div>
 	</section>
 <?php endif; ?>
+
 <?php get_template_part( 'template-parts/flexible', 'staff' ); ?>
+<?php get_template_part( 'template-parts/flexible', 'students' ); ?>
 <?php get_template_part( 'template-parts/flexible', 'directors' ); ?>
 <?php get_footer();
