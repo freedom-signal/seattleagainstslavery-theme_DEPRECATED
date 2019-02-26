@@ -1,3 +1,47 @@
+.site-desktop-title {
+  a {
+    font-weight: bold;
+
+    img {
+      max-height: $topbar-brand-height;
+    }
+  }
+}
+
+.title-bar {
+  .menu-icon {
+    height: 24px;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    width: 24px;
+
+    &:after {
+      background: $secondary-color;
+      box-shadow: 0 7px 0 $secondary-color, 0 14px 0 $secondary-color,
+        0 21px 0 $secondary-color;
+    }
+
+    &:hover {
+      &:after {
+        background: $primary-color;
+        box-shadow: 0 7px 0 $primary-color, 0 14px 0 $primary-color,
+          0 21px 0 $primary-color;
+      }
+    }
+  }
+
+  &-title {
+    a {
+      font-size: 1rem;
+      color: $medium-gray;
+
+      img {
+        max-height: 100px;
+      }
+    }
+  }
+}
+
 .mobile-menu,
 .site-title-bar {
   @include hide-for(large);
@@ -20,24 +64,6 @@
 
 .mobile-menu {
   display: none;
-}
-
-.off-canvas {
-  .menu {
-    height: 100vh;
-    padding: 1rem;
-    a {
-      color: $primary-color;
-      font-weight: 600;
-      font-size: rem-calc(15);
-    }
-    &.active {
-      > a {
-        background: transparent;
-        color: $secondary-color;
-      }
-    }
-  }
 }
 
 .post-navigation {
@@ -75,16 +101,6 @@
 
     @include breakpoint(medium) {
       @include xy-cell(5);
-    }
-  }
-}
-
-.site-desktop-title {
-  a {
-    font-weight: bold;
-
-    img {
-      max-height: $topbar-brand-height;
     }
   }
 }
@@ -163,9 +179,15 @@
         background-color: transparent;
       }
     }
-  }
 
-  .menu {
+    .opens-left:hover,
+    .opens-right:hover {
+      background-color: $green-medium;
+      > a {
+        color: white !important;
+      }
+    }
+
     > li:not(.menu-text) {
       > a {
         padding: 0.75rem;
@@ -187,19 +209,22 @@
     }
 
     .submenu {
+      background-color: $green-medium;
       border: 0;
-      min-width: 300px;
       top: 70% !important;
-      box-shadow: rgba(108, 117, 125, 0.73) 1px 3px 5px -3px,
-        rgba(108, 117, 125, 0.73) 3px 3px 5px -2px,
-        rgba(108, 117, 125, 0.73) -3px 3px 5px -3px;
-  
+      z-index: 999;
+
       a {
         font-size: 1rem;
+        color: white;
+
+        &:hover {
+          color: $blue-medium;
+        }
       }
     }
 
-
+    // This hides the down arrow icon that comes default on dropdowns
     &:first-child {
       > li.is-dropdown-submenu-parent {
         > a {
@@ -212,35 +237,19 @@
   }
 }
 
-.title-bar {
-  .menu-icon {
-    height: 24px;
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-    width: 24px;
-
-    &:after {
-      background: $secondary-color;
-      box-shadow: 0 7px 0 $secondary-color, 0 14px 0 $secondary-color,
-        0 21px 0 $secondary-color;
-    }
-
-    &:hover {
-      &:after {
-        background: $primary-color;
-        box-shadow: 0 7px 0 $primary-color, 0 14px 0 $primary-color,
-          0 21px 0 $primary-color;
-      }
-    }
-  }
-
-  &-title {
+.off-canvas {
+  .menu {
+    height: 100vh;
+    padding: 1rem;
     a {
-      font-size: 1rem;
-      color: $medium-gray;
-
-      img {
-        max-height: 100px;
+      color: $primary-color;
+      font-weight: 600;
+      font-size: rem-calc(15);
+    }
+    &.active {
+      > a {
+        background: transparent;
+        color: $secondary-color;
       }
     }
   }
