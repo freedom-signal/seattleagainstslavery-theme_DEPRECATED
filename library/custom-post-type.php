@@ -579,7 +579,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
 				'key' => 'field_5bb3c0e3c9901',
 				'label' => 'Model & Approach',
 				'name' => 'approach',
-				'type' => 'text',
+				'type' => 'wysiwyg',
 				'instructions' => 'Model & Approach text',
 				'required' => 0,
 				'conditional_logic' => 0,
