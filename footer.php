@@ -54,6 +54,9 @@
 							</li>
 						<?php endif; ?>
 					</ul>
+
+					<?php get_template_part( 'template-parts/mailchimp', 'form' ); ?>
+
 					<?php if(get_theme_mod('sas_tax-info')): ?>
 						<div class="footer-org-info">
 							<?= get_theme_mod('sas_tax-info'); ?>
