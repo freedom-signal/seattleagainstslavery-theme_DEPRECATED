@@ -1,17 +1,16 @@
 .gform_wrapper {
   @include foundation-forms;
   margin: map-get($grid-column-gutter, medium) 0;
-  form {
 
+  form {
     ul {
       li {
         &.gfield {
           padding: 0 !important;
-          .gfield_label {
-            display: none;
-          }
+
           .ginput_cardinfo_left {
             width: 100%;
+
             .ginput_card_expiration {
               @include foundation-form-select;
               background: transparent;
