@@ -1,5 +1,6 @@
 .flexible {
   &--positions {
+    padding: 3em 0 0.5em;
     .main-grid {
       @include xy-grid;
       @extend .align-center;
@@ -14,6 +15,21 @@
       @include xy-cell(12);
       @include xy-grid;
       @extend .align-center;
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+
+        &:after {
+          background: url("../images/downward-teal-arrows.svg") no-repeat center
+            center;
+          background-size: contain;
+          margin-bottom: 0.5rem;
+          content: "";
+          display: block;
+          height: 30px;
+        }
+      }
     }
 
     &--single {
@@ -32,7 +48,7 @@
           font-weight: $global-weight-medium;
           letter-spacing: 1px;
           &:after {
-            content: '\203A';
+            content: "\203A";
             font-size: 1.5rem;
             margin-left: 0.25rem;
           }
@@ -70,7 +86,7 @@
           &:after {
             border-bottom: 2px solid $aqua-medium;
             bottom: 2px;
-            content: '';
+            content: "";
             display: block;
             position: absolute;
             width: 75%;
