@@ -7,9 +7,9 @@ endif;
 
 if ( $films['category'] ):
 	$the_query = new WP_Query( array(
-		'post_type' => 'resource',
-		'orderby' => 'menu_order',
-		'order' => 'ASC',
+		'post_type'	=> 'resource',
+		'orderby'		=> 'menu_order',
+		'order' 		=> 'ASC',
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'type',

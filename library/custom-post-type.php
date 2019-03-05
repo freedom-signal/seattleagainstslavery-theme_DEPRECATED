@@ -29,6 +29,7 @@ function register_cpt() {
 			)
 		)
 	);
+
 	register_taxonomy_for_object_type( 'categories', 'resource' );
 
 	$labels = array(
@@ -63,8 +64,8 @@ function register_cpt() {
 	register_taxonomy_for_object_type( 'categories', 'team' );
 
 	$labels = array(
-		'name'          => __( 'Volunteers', 'foundationpress' ),
-		'singular_name' => __( 'Volunteer', 'foundationpress' ),
+		'name'          => __( 'Volunteer Positions', 'foundationpress' ),
+		'singular_name' => __( 'Volunteer Position', 'foundationpress' ),
 	);
 
 	$args = array(
@@ -79,6 +80,18 @@ function register_cpt() {
 	);
 
 	register_post_type( 'volunteer', $args );
+
+	register_taxonomy( 'grouping', array( 'volunteer' ), array(
+		'hierarchical'   => true,
+		'label'          => 'Groupings',
+		'singular_label' => 'Grouping',
+		'rewrite'        => array(
+			'slug'       => 'volunteer',
+			'with_front' => false
+			)
+		)
+	);
+	register_taxonomy_for_object_type( 'categories', 'volunteer' );
 }
 
 add_action( 'init', 'register_cpt' );
@@ -229,94 +242,88 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
 		'description'           => '',
 	) );
 
-	acf_add_local_field_group( array(
-		'key'                   => 'group_5ac096341cd46',
-		'title'                 => '[CPT] Volunteers',
-		'fields'                => array(
+	acf_add_local_field_group(array(
+		'key' => 'group_5ac096341cd46',
+		'title' => '[CPT] Volunteer Positions',
+		'fields' => array(
 			array(
-				'key'               => 'field_5ac1455946b97',
-				'label'             => 'Responsibilities',
-				'name'              => 'responsibilities',
-				'type'              => 'wysiwyg',
-				'instructions'      => '',
-				'required'          => 0,
+				'key' => 'field_5ac1455946b97',
+				'label' => 'Responsibilities',
+				'name' => 'responsibilities',
+				'type' => 'wysiwyg',
+				'instructions' => '',
+				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
-					'id'    => '',
+					'id' => '',
 				),
-				'default_value'     => '',
-				'tabs'              => 'all',
-				'toolbar'           => 'full',
-				'media_upload'      => 0,
-				'delay'             => 0,
+				'default_value' => '',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => 0,
+				'delay' => 0,
 			),
 			array(
-				'key'               => 'field_5ac1456246b98',
-				'label'             => 'Desired Skills',
-				'name'              => 'skills',
-				'type'              => 'wysiwyg',
-				'instructions'      => '',
-				'required'          => 0,
+				'key' => 'field_5ac1456246b98',
+				'label' => 'Desired Skills',
+				'name' => 'skills',
+				'type' => 'wysiwyg',
+				'instructions' => '',
+				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
-					'id'    => '',
+					'id' => '',
 				),
-				'default_value'     => '',
-				'tabs'              => 'all',
-				'toolbar'           => 'full',
-				'media_upload'      => 0,
-				'delay'             => 0,
+				'default_value' => '',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => 0,
+				'delay' => 0,
 			),
 			array(
-				'key'               => 'field_5ac1457e46b99',
-				'label'             => 'Contact',
-				'name'              => 'contact',
-				'type'              => 'email',
-				'instructions'      => 'Email address of main contact point for this position.',
-				'required'          => 0,
+				'key' => 'field_5ac1457e46b99',
+				'label' => 'Application',
+				'name' => 'apply-link',
+				'type' => 'url',
+				'instructions' => '',
+				'required' => 0,
 				'conditional_logic' => 0,
-				'wrapper'           => array(
+				'wrapper' => array(
 					'width' => '',
 					'class' => '',
-					'id'    => '',
+					'id' => '',
 				),
-				'default_value'     => 'volunteer@seattleagainstslavery.org',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
+				'default_value' => '',
+				'placeholder' => '',
 			),
 		),
-		'location'              => array(
+		'location' => array(
 			array(
 				array(
-					'param'    => 'post_type',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value'    => 'volunteer',
+					'value' => 'volunteer',
 				),
 			),
 		),
-		'menu_order'            => 0,
-		'position'              => 'normal',
-		'style'                 => 'seamless',
-		'label_placement'       => 'top',
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'seamless',
+		'label_placement' => 'top',
 		'instruction_placement' => 'label',
-		'hide_on_screen'        => array(
+		'hide_on_screen' => array(
 			0 => 'the_content',
 			1 => 'excerpt',
-			2 => 'comments',
-			3 => 'author',
-			4 => 'format',
-			5 => 'page_attributes',
-			6 => 'featured_image',
-			7 => 'categories',
+			2 => 'discussion',
+			3 => 'comments',
 		),
-		'active'                => 1,
-		'description'           => '',
-	) );
+		'active' => 1,
+		'description' => '',
+	));
 
 	acf_add_local_field_group( array(
 		'key'                   => 'group_5ac2c320324de',

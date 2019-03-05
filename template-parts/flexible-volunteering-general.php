@@ -1,14 +1,24 @@
-<?php $the_query = new WP_Query( array(
-	'post_type' => 'volunteer',
-	'orderby' => 'menu_order',
-	'order' => 'ASC'
-) );
+<?php 
+if (true):
+	$the_query = new WP_Query( array(
+		'post_type'      => 'volunteer',
+		'orderby'        => 'menu_order',
+		'order'          => 'ASC',
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'grouping',
+				'field'    => 'slug',
+				'terms'    => 'general',
+			)
+		),
+	) );
 
 if ( $the_query->have_posts() ): ?>
 	<section class="flexible flexible--positions">
 		<div class="main-container">
 			<div class="main-grid">
 				<div class="flexible--positions--container">
+				<h3>General Opportunities</h3>
 					<ul class="flexible--positions--accordion" data-accordion data-allow-all-closed="true">
 						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<li class="flexible--positions--single" data-accordion-item>
@@ -20,7 +30,7 @@ if ( $the_query->have_posts() ): ?>
 									<h3><?= __( 'Desired Skills:', 'foundationpress' ); ?></h3>
 									<?= get_field( 'skills' ); ?>
 									<a
-										href="mailto:<?= get_field( 'contact' ); ?>?subject=<?= get_the_title(); ?> volunteer position">
+										href="<?= get_field( 'apply-link' ); ?>">
 										<?= __( 'Apply Now', 'foundationpress' ); ?>
 									</a>
 								</div>
@@ -30,6 +40,6 @@ if ( $the_query->have_posts() ): ?>
 			</div>
 		</div>
 	</section>
-<?php endif;
-
-wp_reset_postdata(); ?>
+	<?php endif;
+	wp_reset_postdata();
+endif; ?>
