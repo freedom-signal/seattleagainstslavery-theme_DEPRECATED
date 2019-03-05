@@ -29,7 +29,7 @@ if ( $the_query->have_posts() ): ?>
 									
 									<h3><?= __( 'Desired Skills:', 'foundationpress' ); ?></h3>
 									<?= get_field( 'skills' ); ?>
-									<a
+									<a class="apply-link"
 										href="<?= get_field( 'apply-link' ); ?>">
 										<?= __( 'Apply Now', 'foundationpress' ); ?>
 									</a>

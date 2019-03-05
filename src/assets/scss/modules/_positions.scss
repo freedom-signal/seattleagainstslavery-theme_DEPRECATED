@@ -39,7 +39,7 @@
       &-content {
         @extend .accordion-content;
 
-        a {
+        .apply-link {
           @include flex;
           @include flex-align(right, middle);
           @extend .text-uppercase;
