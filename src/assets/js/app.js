@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 window.$ = $;
 
@@ -12,11 +12,14 @@ var slickOptions = {
 };
 
 $(document).foundation();
-$('.sas-hero').slick(slickOptions);
-$('.sas-donate-form').donate();
-$('.flexible--events').events();
+$(".sas-hero").slick(slickOptions);
+$(".sas-donate-form").donate();
+$(".flexible--events").events();
 
-$(window).on('changed.zf.mediaquery', function () {
-  $('.flexible--events').events();
+$(window).on("changed.zf.mediaquery", function() {
+  $(".flexible--events").events();
 });
 
+$("#register-sse").click(function() {
+  fbq("track", "Clicked Registration Button");
+});
