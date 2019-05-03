@@ -17,5 +17,6 @@ if ( have_rows( 'content_section' ) ):
 endif;
 
 get_template_part('template-parts/fwcat/fwcat', 'events');
+get_template_part('template-parts/fwcat/fwcat', 'volunteering');
 get_template_part('template-parts/fwcat/fwcat', 'donate');
 get_footer();
