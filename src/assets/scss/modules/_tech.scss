@@ -1,0 +1,84 @@
+.offerings {
+  @include xy-grid;
+  @extend .align-center;
+  padding: 0;
+  margin-top: -1.5rem;
+
+  h2 {
+    @include xy-cell(10);
+    @extend .header;
+    color: $primary-color;
+  }
+  h3 {
+    @include xy-cell(10);
+    @extend .subheader;
+    color: $primary-color;
+  }
+
+  &--container {
+    @include xy-cell(12);
+    @include xy-grid;
+    @extend .align-center;
+    @extend .align-stretch;
+  }
+
+  &--single {
+    @include xy-cell(11);
+    padding: 1rem 0;
+
+    @include breakpoint(medium) {
+      @include xy-cell(10);
+    }
+
+    @include breakpoint(large) {
+      @include xy-cell(6);
+    }
+
+    @include breakpoint(xlarge) {
+      @include xy-cell(4);
+    }
+
+    .item {
+      @extend .align-middle;
+      color: $blue-medium;
+      height: 100%;
+      margin: 0.25rem;
+      padding: 1rem;
+      position: relative;
+      text-align: center;
+
+      .icon {
+        height: 100px;
+        width: 100%;
+        display: block;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-bottom: 0.5rem;
+
+        &.reachout {
+          background-image: url("../images/tech-icons/victim-outreach.svg");
+        }
+
+        &.chatbots {
+          background-image: url("../images/tech-icons/chat.svg");
+        }
+
+        &.deterrence {
+          background-image: url("../images/tech-icons/website.svg");
+        }
+
+        &.social {
+          background-image: url("../images/tech-icons/social-media.svg");
+        }
+
+        &.search {
+          background-image: url("../images/tech-icons/search.svg");
+        }
+
+        &.analytics {
+          background-image: url("../images/tech-icons/reporting.svg");
+        }
+      }
+    }
+  }
+}
