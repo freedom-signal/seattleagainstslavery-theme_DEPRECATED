@@ -10,4 +10,4 @@ get_header(); ?>
 <?php get_template_part('template-parts/flexible', 'books'); ?>
 <?php get_template_part('template-parts/flexible', 'organizations'); ?>
 <?php get_template_part('template-parts/flexible', 'brochures'); ?>
-<?php get_footer();
+<?php get_footer();?>

@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: FWCAT
+Template Name: Tech
 */
 get_header();
 
@@ -16,8 +16,6 @@ if ( have_rows( 'content_section' ) ):
 	endwhile;
 endif;
 
-get_template_part('template-parts/fwcat/fwcat', 'events');
-get_template_part('template-parts/fwcat/fwcat', 'volunteering');
-get_template_part('template-parts/fwcat/fwcat', 'donate');
+get_template_part('template-parts/tech/tech', 'volunteering');
 get_footer();
 ?>

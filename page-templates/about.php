@@ -21,4 +21,4 @@ get_header(); ?>
 <?php get_template_part( 'template-parts/flexible', 'staff' ); ?>
 <?php get_template_part( 'template-parts/flexible', 'students' ); ?>
 <?php get_template_part( 'template-parts/flexible', 'directors' ); ?>
-<?php get_footer();
+<?php get_footer();?>
