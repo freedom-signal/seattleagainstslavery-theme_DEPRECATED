@@ -8,7 +8,7 @@
 			array(
 				'taxonomy' => 'grouping',
 				'field'    => 'slug',
-				'terms'    => 'short-term',
+				'terms'    => 'youth',
 			)
 		),
 	) );
@@ -18,7 +18,7 @@ if ( $the_query->have_posts() ): ?>
 		<div class="main-container">
 			<div class="main-grid">
 				<div class="flexible--positions--container">
-				<h2>Short Term Opportunities</h2>
+				<h2>Youth Opportunities</h2>
 					<ul class="flexible--positions--accordion" data-accordion data-allow-all-closed="true">
 						<?php while ( $the_query->have_posts() ): $the_query->the_post(); ?>
 							<li class="flexible--positions--single" data-accordion-item>
