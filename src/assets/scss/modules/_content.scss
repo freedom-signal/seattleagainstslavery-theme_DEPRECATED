@@ -33,7 +33,7 @@
         margin-bottom: 1.75 * $global-padding;
 
         &:after {
-          content: '';
+          content: "";
           display: block;
           padding-bottom: 34%;
         }
@@ -85,7 +85,8 @@
       time {
         background: white;
         border: 1px solid;
-        border-color: transparent $light-lighter-gray $light-lighter-gray transparent;
+        border-color: transparent $light-lighter-gray $light-lighter-gray
+          transparent;
         display: block;
         padding-top: 0.5 * $global-padding;
         position: relative;
@@ -97,7 +98,7 @@
             font-weight: $global-weight-medium;
             letter-spacing: -3px;
             line-height: 1;
-            margin: 0 auto .75rem;
+            margin: 0 auto 0.75rem;
             text-align: center;
           }
           &-month {
@@ -120,7 +121,7 @@
         &:after {
           border-right: 1px solid $light-lighter-gray;
           bottom: -1rem;
-          content: '';
+          content: "";
           display: block;
           height: 1rem;
           position: absolute;
@@ -169,53 +170,6 @@
         + .content--post-related--content {
           @include breakpoint(medium) {
             @include xy-cell(6);
-          }
-        }
-      }
-    }
-    &-social {
-      padding: 2 * $global-padding 0;
-      @include xy-grid;
-      @extend .align-center;
-
-      .addtoany_shortcode {
-        @include xy-cell(12);
-
-        @include breakpoint(medium) {
-          @include xy-cell(10);
-        }
-      }
-
-      .addtoany_list {
-        @include xy-grid;
-
-        a {
-          @include xy-cell(12);
-          @extend .button;
-          @extend .button-small;
-          @extend .button.secondary;
-          @extend .text-uppercase;
-
-          @include breakpoint(medium) {
-            @include xy-cell(3);
-          }
-
-          .a2a {
-            &_label {
-              clip-path: none;
-              height: auto;
-              line-height: 1.1;
-              overflow: unset;
-              position: static !important;
-              width: auto;
-            }
-            &_svg {
-              display: none;
-            }
-          }
-
-          &:before {
-            content: 'Share ';
           }
         }
       }
