@@ -61,7 +61,25 @@ function register_cpt() {
 		)
 	);
 
-	register_taxonomy_for_object_type( 'categories', 'team' );
+    register_taxonomy_for_object_type( 'categories', 'team' );
+    
+    $labels = array(
+		'name'          => __( 'Blog Authors', 'foundationpress' ),
+		'singular_name' => __( 'Blog Author', 'foundationpress' ),
+	);
+
+	$args = array(
+		'has_archive' => true,
+		'label'       => __( 'Blog Authors', 'foundationpress' ),
+		'labels'      => $labels,
+		'menu_icon'   => 'dashicons-admin-users',
+		'public'      => true,
+		'rewrite'     => array( 'slug' => 'blog-author', 'with_front' => true ),
+		'show_ui'     => true,
+		'supports'    => array( 'title', 'thumbnail', 'custom-fields', 'page-attributes' )
+	);
+
+	register_post_type( 'blog-author', $args );
 
 	$labels = array(
 		'name'          => __( 'Volunteer Positions', 'foundationpress' ),
@@ -97,6 +115,92 @@ function register_cpt() {
 add_action( 'init', 'register_cpt' );
 
 if ( function_exists( 'acf_add_local_field_group' ) ):
+
+    acf_add_local_field_group(array(
+        'key' => 'group_5d5f1abed603a',
+        'title' => '[CPT] Blog Authors',
+        'fields' => array(
+            array(
+                'key' => 'field_5d5f1ac567dcc',
+                'label' => 'Name',
+                'name' => 'name',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
+                'key' => 'field_5d5f1ace67dcd',
+                'label' => 'Bio',
+                'name' => 'bio',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'new_lines' => '',
+            ),
+            array(
+                'key' => 'field_5d5f1afc67dce',
+                'label' => 'Photo',
+                'name' => 'photo',
+                'type' => 'image',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'return_format' => 'array',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+                'min_width' => '',
+                'min_height' => '',
+                'min_size' => '',
+                'max_width' => '',
+                'max_height' => '',
+                'max_size' => '',
+                'mime_types' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'blog-author',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => 1,
+        'description' => '',
+    ));
 
 	acf_add_local_field_group( array(
 		'key'                   => 'group_5ac184074e0d9',
@@ -535,48 +639,70 @@ if ( function_exists( 'acf_add_local_field_group' ) ):
 		'description'           => '',
 	) );
 
-	acf_add_local_field_group( array(
-		'key'                   => 'group_5aaea98ba965c',
-		'title'                 => '[Post Type] Posts Title Field',
-		'fields'                => array(
-			array(
-				'key'               => 'field_5aaea9af79a23',
-				'label'             => 'Subtitle',
-				'name'              => 'post_subtitle',
-				'type'              => 'text',
-				'instructions'      => '',
-				'required'          => 0,
-				'conditional_logic' => 0,
-				'wrapper'           => array(
-					'width' => '',
-					'class' => '',
-					'id'    => '',
-				),
-				'default_value'     => '',
-				'placeholder'       => '',
-				'prepend'           => '',
-				'append'            => '',
-				'maxlength'         => '',
-			),
-		),
-		'location'              => array(
-			array(
-				array(
-					'param'    => 'post_type',
-					'operator' => '==',
-					'value'    => 'post',
-				),
-			),
-		),
-		'menu_order'            => 0,
-		'position'              => 'acf_after_title',
-		'style'                 => 'seamless',
-		'label_placement'       => 'top',
-		'instruction_placement' => 'label',
-		'hide_on_screen'        => '',
-		'active'                => 1,
-		'description'           => '',
-	) );
+    acf_add_local_field_group(array(
+        'key' => 'group_5aaea98ba965c',
+        'title' => '[Post Type] Posts Subtitle & Blog Author Field',
+        'fields' => array(
+            array(
+                'key' => 'field_5aaea9af79a23',
+                'label' => 'Subtitle',
+                'name' => 'post_subtitle',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
+                'key' => 'field_5d5f1e038e958',
+                'label' => 'Blog Author',
+                'name' => 'blog_author',
+                'type' => 'post_object',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'post_type' => array(
+                    0 => 'blog-author',
+                ),
+                'taxonomy' => '',
+                'allow_null' => 0,
+                'multiple' => 0,
+                'return_format' => 'object',
+                'ui' => 1,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'post',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'acf_after_title',
+        'style' => 'seamless',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => 1,
+        'description' => '',
+    ));
 
 	acf_add_local_field_group(array(
 		'key' => 'group_5ac18c3b714d6',
