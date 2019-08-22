@@ -67,14 +67,6 @@
 }
 
 .post-navigation {
-  @include xy-grid;
-  @extend .align-center;
-
-  .nav-links {
-    @include xy-grid;
-    @extend .align-center;
-  }
-
   &--next,
   &--previous {
     a {
@@ -85,23 +77,8 @@
     }
   }
 
-  &--previous,
-  .nav-previous {
-    @include xy-cell;
+  &--previous {
     @extend .text-right;
-
-    @include breakpoint(medium) {
-      @include xy-cell(5);
-    }
-  }
-
-  &--next,
-  .nav-next {
-    @include xy-cell;
-
-    @include breakpoint(medium) {
-      @include xy-cell(5);
-    }
   }
 }
 

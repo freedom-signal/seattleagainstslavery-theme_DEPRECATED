@@ -2,10 +2,10 @@
   &--post {
     &-container {
       @include xy-grid;
-      margin-bottom: 2.5 * $global-padding;
+      margin-top: 4rem;
 
       &:last-of-type {
-        margin-bottom: 0;
+        margin-bottom: 2.5rem;
       }
 
       @include breakpoint(medium) {

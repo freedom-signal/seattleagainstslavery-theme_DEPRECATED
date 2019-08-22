@@ -9,7 +9,7 @@
   &:before {
     background: transparent no-repeat center center;
     background-size: contain;
-    content: '';
+    content: "";
     display: block;
     height: rem-calc(60);
     position: absolute;
@@ -17,12 +17,12 @@
     z-index: -1;
   }
   &:after {
-    background-image: url('../images/green-bg_top.png');
+    background-image: url("../images/green-bg_top.png");
     left: 2.5rem;
     top: 2.5rem;
   }
   &:before {
-    background-image: url('../images/green-bg_bottom.png');
+    background-image: url("../images/green-bg_bottom.png");
     bottom: 2.5rem;
     right: 2.5rem;
   }
@@ -111,21 +111,27 @@
       width: rem-calc(250);
     }
     &:after {
-      background-image: url('../images/default-bg_top.png');
+      background-image: url("../images/default-bg_top.png");
       bottom: 1rem;
       left: 1rem;
       top: auto;
       z-index: 0;
     }
     &:before {
-      background-image: url('../images/default-bg_bottom.png');
+      background-image: url("../images/default-bg_bottom.png");
       bottom: auto;
       right: 1rem;
       top: 1rem;
       z-index: 0;
     }
 
-    h1,  h2, h3, h4, h5, h6, p{
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
       color: white;
     }
 
@@ -174,11 +180,11 @@
       width: rem-calc(200);
     }
     &:after {
-      background-image: url('../images/teal-bg_top.png');
+      background-image: url("../images/teal-bg_top.png");
       left: 1rem;
     }
     &:before {
-      background-image: url('../images/teal-bg_bottom.png');
+      background-image: url("../images/teal-bg_bottom.png");
       right: 1rem;
     }
 
@@ -246,19 +252,19 @@
         &:before {
           background: transparent no-repeat center center;
           background-size: contain;
-          content: '';
+          content: "";
           display: block;
           height: rem-calc(60);
           position: absolute;
           width: rem-calc(300);
         }
         &:after {
-          background-image: url('../images/default-bg_top.png');
+          background-image: url("../images/default-bg_top.png");
           left: 2.25rem;
           top: 2.25rem;
         }
         &:before {
-          background-image: url('../images/default-bg_bottom.png');
+          background-image: url("../images/default-bg_bottom.png");
           bottom: 2.25rem;
           right: 2.25rem;
         }
@@ -270,7 +276,7 @@
         &:before {
           @extend .absolute-cover;
           background: transparentize($dark-gray, 0.75);
-          content: '';
+          content: "";
           z-index: -1;
         }
       }
