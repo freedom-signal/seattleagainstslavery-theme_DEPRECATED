@@ -67,8 +67,11 @@
 }
 
 .post-navigation {
+  margin: 4rem;
+
   &--next,
   &--previous {
+    display: inline-block;
     a {
       @extend .button;
       @extend .button-large;
@@ -77,8 +80,8 @@
     }
   }
 
-  &--previous {
-    @extend .text-right;
+  &--next {
+    float: right;
   }
 }
 

@@ -23,11 +23,11 @@ get_header(); ?>
     endwhile; ?>
 			<?php else: ?>
 				<?php get_template_part('template-parts/content', 'none'); ?>
-			<?php endif; ?>
-			<div class="post-border">
-				<hr>
-			</div>
-			<nav class="post-navigation" id="post-nav">
+      <?php endif; ?>
+      
+      <hr>
+      
+      <nav class="post-navigation" id="post-nav">
 				<div class="post-navigation--next"><?php previous_posts_link(
     	__('View newer', 'foundationpress')
     ); ?></div>
@@ -35,9 +35,7 @@ get_header(); ?>
     	__('View older', 'foundationpress')
     ); ?></div>
 			</nav>
-			<div class="post-border">
-				<hr>
-			</div>
+
 		</main>
 	</div>
 </div>
