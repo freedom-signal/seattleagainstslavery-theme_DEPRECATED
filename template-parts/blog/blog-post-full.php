@@ -7,10 +7,14 @@
   </section>
     
 	<section class="content--post-content">
-		
+
+
 		<div class="entry-content">
 			<?php the_content(); ?>
     </div>
-    
+
+    <!-- <div class="content--post-content--meta">
+      <?php foundationpress_entry_meta_full(); ?>
+    </div> -->
 	</section>
 </article>

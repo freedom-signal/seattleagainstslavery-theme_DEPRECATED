@@ -8,7 +8,16 @@
 
 if ( ! function_exists( 'foundationpress_entry_meta' ) ) :
 	function foundationpress_entry_meta() {
-		echo '<p class="byline author">' . __( 'By:', 'foundationpress' ) . ' <a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author" class="fn">' . get_the_author() . '</a></p>';
+		echo '<a class="byline author" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author" class="fn">' . get_the_author() . '</a>';
+	}
+endif;
+
+
+if ( ! function_exists( 'foundationpress_entry_meta_full' ) ) :
+	function foundationpress_entry_meta_full() {
+    echo get_avatar( get_the_author_meta('user_email'), $size = '150');
+    echo '<a class="byline author" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author" class="fn">' . get_the_author() . '</a>';
+    echo get_the_author_meta('description');
 	}
 endif;
 

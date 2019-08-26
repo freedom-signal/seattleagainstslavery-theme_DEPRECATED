@@ -19,7 +19,7 @@
         
         <a href="<?php the_permalink(); ?>">
 					<div class="<?= $classes ?>"
-					     style="background-image: url(<?= $url ?>);">
+					  style="background-image: url(<?= $url ?>);">
 					</div>
         </a>
       <?php
@@ -32,10 +32,9 @@
    	'</a></h2>'
    ); ?>
         
-			<span class="content--post-content--meta">
-			  <?php foundationpress_entry_meta(); ?>
-      </span>
-
+    <span class="content--post-content--meta">
+      <!-- <?php foundationpress_entry_meta(); ?> -->
+    </span>
   </div>
     
 		<div class="entry-content">
