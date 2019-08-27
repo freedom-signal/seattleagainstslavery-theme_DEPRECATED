@@ -4,7 +4,7 @@
   $url = '';
   $classes = 'featured-image--post--image';
   if (has_post_thumbnail($post->ID)):
-  	$classes .= 'featured-image--post--image-single'; ?>
+  	$classes .= '  featured-image--post--image-single'; ?>
 		 <div class="<?= $classes ?>" role="banner"
         data-interchange="
         [<?php the_post_thumbnail_url('featured-small'); ?>, small], 

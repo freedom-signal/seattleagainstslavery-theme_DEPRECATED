@@ -260,18 +260,18 @@
         }
         &:after {
           background-image: url("../images/default-bg_top.png");
-          left: 2.25rem;
-          top: 2.25rem;
+          left: 1rem;
+          top: 0.5rem;
         }
         &:before {
           background-image: url("../images/default-bg_bottom.png");
-          bottom: 2.25rem;
-          right: 2.25rem;
+          bottom: 0.5rem;
+          right: 1rem;
         }
       }
 
       &-single {
-        filter: blur(4px);
+        filter: blur(2px);
 
         &:before {
           @extend .absolute-cover;
@@ -283,19 +283,19 @@
     }
     &--title {
       @include xy-cell;
-      padding-bottom: 5 * $global-padding;
-      padding-top: 5 * $global-padding;
+      padding-bottom: 2 * $global-padding;
+      padding-top: 2 * $global-padding;
       z-index: 10;
 
       @include breakpoint(medium) {
         @include xy-cell(10);
-        padding-bottom: 6.5 * $global-padding;
-        padding-top: 6.5 * $global-padding;
+        padding-bottom: 2.5 * $global-padding;
+        padding-top: 2.5 * $global-padding;
       }
 
       @include breakpoint(xlarge) {
-        padding-bottom: 7.75 * $global-padding;
-        padding-top: 7.75 * $global-padding;
+        padding-bottom: 3 * $global-padding;
+        padding-top: 3 * $global-padding;
       }
       h1 {
         @extend .text-center;

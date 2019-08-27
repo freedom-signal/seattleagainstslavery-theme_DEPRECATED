@@ -10,8 +10,6 @@
     <?php if (has_post_thumbnail()):
 
       $classes = 'content--post-content--image';
-      $url =
-        get_stylesheet_directory_uri() . '/dist/assets/images/default-bg.png';
       $url = get_the_post_thumbnail_url();
       ?>
       

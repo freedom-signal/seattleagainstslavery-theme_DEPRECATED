@@ -7,8 +7,6 @@
   </section>
     
 	<section class="content--post-content">
-
-
 		<div class="entry-content">
 			<?php the_content(); ?>
     </div>
