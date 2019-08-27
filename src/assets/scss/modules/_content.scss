@@ -44,12 +44,13 @@
           background-size: contain;
         }
       }
+      &--header {
+        margin-bottom: 1.5rem;
+        color: $blue;
+      }
+
       &--meta {
         font-weight: $global-weight-medium;
-
-        a {
-          @extend .link-primary;
-        }
 
         &-full {
           border-top: 1px solid lightgrey;

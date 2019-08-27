@@ -75,6 +75,7 @@
     a {
       @extend .button;
       @extend .button-large;
+      @extend .button-round;
       @extend .button.orange;
       margin-bottom: 0;
     }
