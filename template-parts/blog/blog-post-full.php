@@ -13,8 +13,8 @@
 			<?php the_content(); ?>
     </div>
 
-    <!-- <div class="content--post-content--meta">
+    <div class="content--post-content--meta-full">
       <?php foundationpress_entry_meta_full(); ?>
-    </div> -->
+    </div>
 	</section>
 </article>

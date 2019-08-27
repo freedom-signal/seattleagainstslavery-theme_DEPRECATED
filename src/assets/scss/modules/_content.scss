@@ -50,6 +50,37 @@
         a {
           @extend .link-primary;
         }
+
+        &-full {
+          border-top: 1px solid lightgrey;
+          padding: 2rem 0;
+          margin-top: 2em;
+
+          img {
+            border-radius: 50%;
+            vertical-align: middle;
+            display: inline-block;
+            box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+          }
+
+          .author-details {
+            display: inline-block;
+            font-size: 2rem;
+            vertical-align: middle;
+            margin-left: 1rem;
+
+            .author-bio {
+              font-size: 1rem;
+              margin-bottom: 0;
+            }
+
+            .read-more {
+              font-style: italic;
+              font-size: 1rem;
+              display: block;
+            }
+          }
+        }
       }
       &--title {
         @extend .text-uppercase;

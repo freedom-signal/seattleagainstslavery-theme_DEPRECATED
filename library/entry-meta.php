@@ -16,8 +16,8 @@ endif;
 if ( ! function_exists( 'foundationpress_entry_meta_full' ) ) :
 	function foundationpress_entry_meta_full() {
     echo get_avatar( get_the_author_meta('user_email'), $size = '150');
-    echo '<a class="byline author" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author" class="fn">' . get_the_author() . '</a>';
-    echo get_the_author_meta('description');
+    echo '<div class="author-details">' . get_the_author() .'
+    <p class="author-bio">' . get_the_author_meta('description') . '</p><a class="read-more" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author" class="fn">Read more posts by ' . get_the_author() . '</a></div>';
 	}
 endif;
 

@@ -33,7 +33,7 @@
    ); ?>
         
     <span class="content--post-content--meta">
-      <!-- <?php foundationpress_entry_meta(); ?> -->
+      <?php foundationpress_entry_meta(); ?>
     </span>
   </div>
     
