@@ -1,17 +1,34 @@
-.author {
-  &--bio {
-    @include xy-grid;
-    @extend .align-center;
+.author-posts {
+  .author-meta {
+    font-weight: $global-weight-medium;
+    border-bottom: 1px solid lightgrey;
+    border-top: 1px solid lightgrey;
+    padding: 2rem 0;
+    margin: 2em auto 0;
+    width: 80%;
 
-    &--content {
-      @include xy-cell(12);
+    img {
+      border-radius: 50%;
+      vertical-align: middle;
+      display: inline-block;
+      box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+    }
 
-      @include breakpoint(medium){
-        @include xy-cell(10);
+    .author-details {
+      display: inline-block;
+      font-size: 2rem;
+      vertical-align: middle;
+      margin-left: 1rem;
+
+      .author-bio {
+        font-size: 1rem;
+        margin-bottom: 0;
       }
 
-      h1 {
-        margin-bottom: 1.5 * $global-padding;
+      .read-more {
+        font-style: italic;
+        font-size: 1rem;
+        display: block;
       }
     }
   }
