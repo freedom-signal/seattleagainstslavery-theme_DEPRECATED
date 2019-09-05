@@ -62,6 +62,8 @@
 							<?= get_theme_mod('sas_tax-info'); ?>
 						</div>
 					<?php endif; ?>
+
+          <a href="https://www.seattleagainstslavery.org/privacy-policy/">Privacy Policy</a>
 				</section>
 			</div>
 		</div>
