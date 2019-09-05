@@ -21,6 +21,14 @@ if ( ! function_exists( 'foundationpress_entry_meta_full' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'foundationpress_entry_meta_no_read_more' ) ) :
+	function foundationpress_entry_meta_no_read_more() {
+    echo get_avatar( get_the_author_meta('user_email'), $size = '150');
+    echo '<div class="author-details">' . get_the_author() .'
+    <p class="author-bio">' . get_the_author_meta('description') . '</p></div>';
+	}
+endif;
+
 if ( ! function_exists( 'foundationpress_entry_date' ) ) :
 	function foundationpress_entry_date() {
 		/* translators: %1$s: current date */

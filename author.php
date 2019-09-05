@@ -14,7 +14,7 @@ get_header(); ?>
 		<main class="main-content-full-width author-posts">
       
       <div class="author-meta">
-        <?php foundationpress_entry_meta_full(); ?>
+        <?php foundationpress_entry_meta_no_read_more(); ?>
       </div>
       
       <?php if (have_posts()): ?>
