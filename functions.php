@@ -91,6 +91,13 @@ function change_stripe_description(
 	return $submission_data['form_title'];
 }
 
+//Add memo to stripe reciepts
+add_filter( 'gform_stripe_object', 'add_memo_to_stripe', 10, 2 );
+function add_memo_to_stripe( $args, $form_id ){
+    $args['memo'] = "Seattle Against Slavery is a 501(c)3 nonprofit corporation; tax ID# 27-2026973. Your contribution may be fully tax deductible according to the law, as no goods or services were received in exchange for your gift. Please retain this email for your tax purposes, and consult your financial advisor for further information.";
+    return $args;
+}
+
 // Make a custon excerpt for blog list
 function ce4_excerpt_length($length)
 {
